@@ -1,0 +1,9 @@
+body {
+   margin: 0;
+   padding: 0;
+   background: url('../js/assets/images/web/background.jpg') no-repeat 50% -5%;
+}
+
+canvas {
+   margin: 83px 440px;
+}

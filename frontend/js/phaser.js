@@ -74,14 +74,42 @@ var game = new Phaser.Game(config)
 function preload ()
 {
    this.load.image('floor', 'js/assets/images/sprites/dc-dngn/floor/grey_dirt0.png')
+   this.load.spritesheet('link',
+   'js/assets/images/sprites/zelda/link-move-horizontal-sheet.png',
+   { frameWidth: 24, frameHeight: 24
+   })
+
+
 }
 
 function create ()
 {
    this.add.image(400, 300, 'floor')
+   // this.add.sprite(400, 300, 'link')
+
+   // const player = this.physics.add
+   //    .sprite(spawnPoint.x, spawnPoint.y)
+
+
+
+   player = this.physics.add.sprite(100, 300, 'link');
+
+   this.anims.create({
+      key: 'left',
+      frames: this.anims.generateFrameNumbers('link', {start: 0, end: 5}),
+      frameRate: 10,
+      repeat: -1
+   });
+
+
 }
 
 function update ()
 {
+   if (cursors.left.isDown)
+   {
+      player.setVelocityX(-160);
+      player.anims.play('left', true);
+   }
 
 }

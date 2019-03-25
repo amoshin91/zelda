@@ -1,67 +1,10 @@
-// var config = {
-//    type: Phaser.AUTO,
-//    width: 1000,
-//    height: 800,
-//    physics: {
-//       default: 'arcade',
-//       arcade: {
-//          gravity: { y: 200 }
-//       }
-//    },
-//    scene: {
-//       preload: preload,
-//       create: create
-//    }
-// };
-//
-// var game = new Phaser.Game(config);
-//
-// function preload () {
-//    // this.load.setBaseURL('http://labs.phaser.io');
-//    //
-//    // this.load.image('sky', 'assets/skies/space3.png');
-//    // this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-//    // this.load.image('red', 'assets/particles/red.png');
-//    this.load.image('floor', 'assets/grey_dirt0.png');
-//    this.load.image('redfloor', './assets/images/sprites/dc-dngn/floor/floor_nerves1.png');
-// }
-//
-// // function create() {/Users/amoshinihsoma/Flatiron-School/module-3/week-3/project/zelda/frontend/assets/images/sprites/dc-dngn/floor/floor_nerves1.png
-// //    game.add.image(100, 100, 'floor');
-// //
-// // }
-//
-// function create () {
-//    this.add.image(100, 100, 'redfloor');
-//    this.add.image(500, 300, 'floor');
-//
-//    var particles = this.add.particles('red');
-//
-//    var emitter = particles.createEmitter({
-//       speed: 1000,
-//       scale: { start: 1, end: 0 },
-//       blendMode: 'ADD'
-//    });
-//
-//    var logo = this.physics.add.image(400, 100, 'logo');
-//
-//    logo.setVelocity(100, 200);
-//    logo.setBounce(1, 1);
-//    logo.setCollideWorldBounds(true);
-//
-//    emitter.startFollow(logo);
-// }
-
-
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-
-
 var config = {
    type: Phaser.AUTO,
    width: 800,
    height: 600,
+   physics: {
+      default: 'arcade',
+   },
    scene: {
       preload: preload,
       create: create,
@@ -69,33 +12,47 @@ var config = {
    }
 };
 
-var game = new Phaser.Game(config)
+var game = new Phaser.Game(config);
 
 function preload ()
 {
-   this.load.image('floor', 'js/assets/images/sprites/dc-dngn/floor/grey_dirt0.png')
+   this.load.image('floor', 'js/assets/images/sprites/zelda/floor.jpg')
    this.load.spritesheet('link',
    'js/assets/images/sprites/zelda/link-move-horizontal-sheet.png',
    { frameWidth: 24, frameHeight: 24
-   })
-
-
+   });
 }
 
 function create ()
 {
-   this.add.image(400, 300, 'floor')
-   // this.add.sprite(400, 300, 'link')
+   this.add.image(400, 300, 'floor');
 
-   // const player = this.physics.add
-   //    .sprite(spawnPoint.x, spawnPoint.y)
-
-
-
-   player = this.physics.add.sprite(100, 300, 'link');
+   player = this.physics.add.sprite(400, 300, 'link');
+   cursors = this.input.keyboard.createCursorKeys();
 
    this.anims.create({
       key: 'left',
+      frames: this.anims.generateFrameNumbers('link', {start: 0, end: 5}),
+      frameRate: 10,
+      repeat: -1
+   });
+
+   this.anims.create({
+      key: 'right',
+      frames: this.anims.generateFrameNumbers('link', {start: 7, end: 12}),
+      frameRate: 10,
+      repeat: -1
+   });
+
+   this.anims.create({
+      key: 'down',
+      frames: this.anims.generateFrameNumbers('link', {start: 0, end: 5}),
+      frameRate: 10,
+      repeat: -1
+   });
+
+   this.anims.create({
+      key: 'up',
       frames: this.anims.generateFrameNumbers('link', {start: 0, end: 5}),
       frameRate: 10,
       repeat: -1
@@ -108,8 +65,25 @@ function update ()
 {
    if (cursors.left.isDown)
    {
-      player.setVelocityX(-160);
+      player.setVelocityX(-80);
       player.anims.play('left', true);
-   }
+   } else if (cursors.right.isDown)
+   {
+      player.setVelocityX(80);
+      player.anims.play('right', true);
+   } else if (cursors.down.isDown)
+   {
+      player.setVelocityY(80);
+      player.anims.play('down', true);
+   } else if (cursors.up.isDown)
+   {
+      player.setVelocityY(-80);
+      player.anims.play('up', true);
+   } else {
+      player.setVelocityX(0)
+      player.setVelocityY(0)
+      player.anims.play('left',false);
+   };
+
 
 }

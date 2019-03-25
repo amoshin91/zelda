@@ -1,9 +1,48 @@
-/* body {
+body {
    margin: 0;
    padding: 0;
-   background: url('../js/assets/images/web/background.jpg') no-repeat 50% -5%;
+   background: url('../js/assets/images/web/brick_wall.jpg') repeat;
 }
 
 canvas {
-   margin: 83px 440px;
-} */
+   margin: 68px 371px;
+   position: absolute;
+   /* top: px; */
+
+}
+
+#tv {
+   position: absolute;
+   left: 290px;
+   z-index: 1;
+}
+
+#desk {
+   width: 100vw;
+   height: 280px;
+   background-image: linear-gradient(#000, #1a1a1a);
+   position: absolute;
+   bottom: 0px;
+}
+
+#poster {
+   width: 400px;
+   position: absolute;
+   top: 90px;
+   left: 30px;
+}
+
+#poster2 {
+   width: 400px;
+   position: absolute;
+   top: 30px;
+   right: 30px;
+}
+
+#n64 {
+   width: 900px;
+   position: absolute;
+   bottom: 10px;
+   z-index: 2;
+   left: -120px;
+}

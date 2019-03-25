@@ -1,7 +1,7 @@
 var config = {
    type: Phaser.AUTO,
-   width: 800,
-   height: 600,
+   width: 700,
+   height: 605,
    physics: {
       default: 'arcade',
    },
@@ -18,7 +18,7 @@ function preload ()
 {
    this.load.image('floor', 'js/assets/images/sprites/zelda/floor.jpg')
    this.load.spritesheet('link',
-   'js/assets/images/sprites/zelda/link-move-horizontal-sheet.png',
+   'js/assets/images/sprites/zelda/link-move-long-sheet.png',
    { frameWidth: 24, frameHeight: 24
    });
 }
@@ -31,8 +31,13 @@ function create ()
    cursors = this.input.keyboard.createCursorKeys();
 
    this.anims.create({
+      key: 'stand',
+      frames: this.anims.generateFrameNumbers('link', {start: 0, end: 0}),
+   })
+
+   this.anims.create({
       key: 'left',
-      frames: this.anims.generateFrameNumbers('link', {start: 0, end: 5}),
+      frames: this.anims.generateFrameNumbers('link', {start: 1, end: 6}),
       frameRate: 10,
       repeat: -1
    });
@@ -46,44 +51,57 @@ function create ()
 
    this.anims.create({
       key: 'down',
-      frames: this.anims.generateFrameNumbers('link', {start: 0, end: 5}),
+      frames: this.anims.generateFrameNumbers('link', {start: 21, end: 28}),
       frameRate: 10,
       repeat: -1
    });
 
    this.anims.create({
       key: 'up',
-      frames: this.anims.generateFrameNumbers('link', {start: 0, end: 5}),
+      frames: this.anims.generateFrameNumbers('link', {start: 13, end: 20}),
       frameRate: 10,
       repeat: -1
    });
 
+   player.setCollideWorldBounds(true);
 
 }
 
 function update ()
 {
+   let linkSpeed = 5;
    if (cursors.left.isDown)
    {
-      player.setVelocityX(-80);
+      player.x -= linkSpeed;
       player.anims.play('left', true);
-   } else if (cursors.right.isDown)
+   }
+   else if (cursors.right.isDown)
    {
-      player.setVelocityX(80);
+      player.x += linkSpeed;
       player.anims.play('right', true);
    } else if (cursors.down.isDown)
    {
-      player.setVelocityY(80);
+      player.y += linkSpeed;
       player.anims.play('down', true);
    } else if (cursors.up.isDown)
    {
-      player.setVelocityY(-80);
+      player.y -= linkSpeed;
       player.anims.play('up', true);
    } else {
-      player.setVelocityX(0)
-      player.setVelocityY(0)
-      player.anims.play('left',false);
-   };
+      player.anims.play('stand', true)
+   }
 
+   // this.physics.world.collide()
+   // else
+   // {
+   //    player.setVelocityX(0)
+   //    player.setVelocityY(0)
+   //    player.anims.pause();
+   // };
+
+   // if (player.x <= 3) {
+   //    // player.x === 5
+   //    debugger
+   // }
 
 }

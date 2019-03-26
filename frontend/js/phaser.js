@@ -69,7 +69,7 @@ function create ()
 
 function update ()
 {
-   let linkSpeed = 5;
+   let linkSpeed = 3;
    if (cursors.left.isDown)
    {
       player.x -= linkSpeed;

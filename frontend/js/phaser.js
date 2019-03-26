@@ -6,7 +6,8 @@ const config = {
   physics: {
 		default: 'arcade',
 		arcade: {
-			gravity: {y: 0}
+      gravity: {y: 0},
+      debug: true
 		}
   },
   scene: {
@@ -21,31 +22,39 @@ let rupeeScore = 0;
 let score;
 let scoreText;
 let gameOver = false
+let player;
 
 
 function preload () {
-	// this.load.image('floor', 'js/assets/images/sprites/zelda/floor.jpg')
-  // this.load.image('tiles', 'js/assets/images/mountains.png')
+
   this.load.image('walls', 'js/assets/images/walls.png')
+  this.load.image('lava', 'js/assets/images/terrain.png')
   this.load.image('floor', 'js/assets/images/tileset.png')
 	this.load.tilemapTiledJSON("map", 'js/assets/maps/dungeonnew.json')
 	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 24, frameHeight: 24});	
-
+  
 }
 
 function create () {
-
-  // let scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
+  
   const map = this.make.tilemap({ key: "map" });
-  // const backgroundTileset = map.addTilesetImage("Wallpaper", 'walls')
   const floorTileset = map.addTilesetImage("tileset", "floor");
   const wallsTileset = map.addTilesetImage("walls", "walls");
+  // const lavaTileset = map.addTilesetImage("Wallpaper", "lava")
 	const GroundLayer = map.createStaticLayer("Floors", floorTileset, 0, 0);
   const BackgroundLayer = map.createStaticLayer("Walls", wallsTileset, 0, 0);
-  
-	player = this.physics.add.sprite(400, 300, 'link');
+  const spawnPoint = map.findObject("Obj1", obj => obj.name === "SpawnPoint");
+	player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link');
   enemy = this.physics.add.sprite(300, 200, 'link');
-  
+  BackgroundLayer.setCollisionBetween(0, 482);
+  this.physics.add.collider(player, BackgroundLayer);
+  // BackgroundLayer.setCollision(true)
+  BackgroundLayer.setCollisionByProperty({ collides: true });
+  // BackgroundLayer.setCollision(player)
+  // debugger
+  const camera = this.cameras.main;
+  camera.startFollow(player);
+  camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 	cursors = this.input.keyboard.createCursorKeys();
   
   this.anims.create({
@@ -80,11 +89,17 @@ function create () {
     frameRate: 10,
     repeat: -1
 	});
-	
-  player.setCollideWorldBounds(true);
-  this.physics.add.collider(player, enemy, this);
-  this.physics.add.collider(player, BackgroundLayer);
-  
+	const graphics = this.add
+      .graphics()
+      .setAlpha(0.75)
+      .setDepth(20);
+  // player.setCollideWorldBounds(true);
+  BackgroundLayer.renderDebug(graphics, {
+    tileColor: null, // Color of non-colliding tiles
+    collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+    faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
+  });
+  // this.physics.add.collider(player, BackgroundLayer)
 
 }
 

@@ -42,6 +42,7 @@ function preload () {
    this.load.spritesheet('coin', 'js/assets/images/sprites/zelda/rupee.png', {frameWidth: 16, frameHeight: 25});
 };
 
+asdasd
 ////////////////////////////////////////////
 ///////////////// CREATE ///////////////////
 ////////////////////////////////////////////

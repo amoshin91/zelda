@@ -6,7 +6,8 @@ const config = {
    physics: {
 		default: 'arcade',
 		arcade: {
-			gravity: {y: 0}
+      gravity: {y: 0},
+      debug: true
 		}
    },
    scene: {
@@ -20,45 +21,43 @@ const game = new Phaser.Game(config);
 // let score = 0;
 let score;
 let scoreText;
-let groundLayer;
-let gameOver = false;
-let enemy;
+let gameOver = false
 let player;
-
-
 
 ////////////////////////////////////////////
 ///////////////// PRELOAD //////////////////
 ////////////////////////////////////////////
 
 function preload () {
-	// this.load.image('floor', 'js/assets/images/sprites/zelda/floor.jpg')
-   // this.load.image('tiles', 'js/assets/images/mountains.png')
-   this.load.image('walls', 'js/assets/images/walls.png');
-   this.load.image('floor', 'js/assets/images/tileset.png');
-	this.load.tilemapTiledJSON("map", 'js/assets/maps/dungeonnew.json');
-	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', {frameWidth: 30, frameHeight: 36});
-   this.load.spritesheet('gano', 'js/assets/images/sprites/zelda/ganondorf-move-sheet.png', {frameWidth: 42, frameHeight: 42});
-   this.load.spritesheet('coin', 'js/assets/images/sprites/zelda/rupee.png', {frameWidth: 16, frameHeight: 25});
-};
 
-////////////////////////////////////////////
-///////////////// CREATE ///////////////////
-////////////////////////////////////////////
+  this.load.image('walls', 'js/assets/images/walls.png')
+  this.load.image('lava', 'js/assets/images/terrain.png')
+  this.load.image('floor', 'js/assets/images/tileset.png')
+	this.load.tilemapTiledJSON("map", 'js/assets/maps/dungeonnew.json')
+	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 24, frameHeight: 24});	
+  
+}
 
 function create () {
-   // let scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
-   const map = this.make.tilemap({ key: "map" });
-   // const backgroundTileset = map.addTilesetImage("Wallpaper", 'walls')
-   const floorTileset = map.addTilesetImage("tileset", "floor");
-   const wallsTileset = map.addTilesetImage("walls", "walls");
+  
+  const map = this.make.tilemap({ key: "map" });
+  const floorTileset = map.addTilesetImage("tileset", "floor");
+  const wallsTileset = map.addTilesetImage("walls", "walls");
+  // const lavaTileset = map.addTilesetImage("Wallpaper", "lava")
 	const GroundLayer = map.createStaticLayer("Floors", floorTileset, 0, 0);
-   const BackgroundLayer = map.createStaticLayer("Walls", wallsTileset, 0, 0);
-
-	player = this.physics.add.sprite(400, 300, 'link');
-
-   enemy = this.physics.add.sprite(300, 200, 'gano');
-
+  const BackgroundLayer = map.createStaticLayer("Walls", wallsTileset, 0, 0);
+  const spawnPoint = map.findObject("Obj1", obj => obj.name === "SpawnPoint");
+	player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link');
+  enemy = this.physics.add.sprite(300, 200, 'link');
+  BackgroundLayer.setCollisionBetween(0, 482);
+  this.physics.add.collider(player, BackgroundLayer);
+  // BackgroundLayer.setCollision(true)
+  BackgroundLayer.setCollisionByProperty({ collides: true });
+  // BackgroundLayer.setCollision(player)
+  // debugger
+  const camera = this.cameras.main;
+  camera.startFollow(player);
+  camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 	cursors = this.input.keyboard.createCursorKeys();
 
    this.anims.create({
@@ -157,7 +156,7 @@ function create () {
 
 
 
-   player.setCollideWorldBounds(true);
+  //  player.setCollideWorldBounds(true);
 
    // this.physics.add.overlap(player, coins, collectCoin, null, this);
 };

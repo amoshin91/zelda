@@ -1,0 +1,85 @@
+body {
+   margin: 0;
+   padding: 0;
+   background: url('../js/assets/images/web/brick_wall.jpg') repeat;
+}
+
+canvas {
+   margin: 68px 371px;
+   position: absolute;
+   /* top: px; */
+
+}
+
+#tv {
+   position: absolute;
+   left: 290px;
+   z-index: 1;
+}
+
+#desk {
+   width: 100vw;
+   height: 280px;
+   background-image: url('../js/assets/images/web/wood.jpg');
+   position: absolute;
+   bottom: 0px;
+}
+
+#poster {
+   width: 400px;
+   position: absolute;
+   top: 90px;
+   left: 30px;
+}
+
+#poster2 {
+   width: 400px;
+   position: absolute;
+   top: 30px;
+   right: 30px;
+}
+
+#n64 {
+   width: 800px;
+   position: absolute;
+   bottom: 0px;
+   z-index: 2;
+   left: -140px;
+}
+
+#glare {
+   position: absolute;
+   left: 410px;
+   top: 90px;
+   z-index: 3;
+   opacity: .3;
+}
+
+#screen_lines {
+   position: absolute;
+   left: 350px;
+   top: 50px;
+   z-index: 1;
+   opacity: .2;
+}
+
+#shadow-tv {
+   width: 2000px;
+   height: 400px;
+   position: absolute;
+   background-image: radial-gradient(#000c, #0000, #0000);
+   top: 600px;
+   left: -200px;
+   z-index: 1;
+}
+
+#shadow-n64 {
+   width: 1000px;
+   height: 400px;
+   position: absolute;
+   background-image: radial-gradient(#000c, #0000, #0000);
+   top: 700px;
+   left: -200px;
+   z-index: 1;
+   opacity: .5;
+}

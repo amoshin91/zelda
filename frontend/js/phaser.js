@@ -29,13 +29,21 @@ function preload () {
   this.load.image('walls', 'js/assets/images/walls.png')
   this.load.image('floor', 'js/assets/images/tileset.png')
 	this.load.tilemapTiledJSON("map", 'js/assets/maps/dungeonnew.json')
+<<<<<<< HEAD
 	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 24, frameHeight: 24});	
+=======
+	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 30, frameHeight: 36});
+   this.load.spritesheet('gano', 'js/assets/images/sprites/zelda/ganondorf-move-sheet.png',{ frameWidth: 42, frameHeight: 42});
+>>>>>>> bd2c70ed5d7a12ada8adc2cf40396cbb1ca828a1
 
 }
 
 function create () {
 
+<<<<<<< HEAD
   // let scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
+=======
+>>>>>>> bd2c70ed5d7a12ada8adc2cf40396cbb1ca828a1
   const map = this.make.tilemap({ key: "map" });
   // const backgroundTileset = map.addTilesetImage("Wallpaper", 'walls')
   const floorTileset = map.addTilesetImage("tileset", "floor");

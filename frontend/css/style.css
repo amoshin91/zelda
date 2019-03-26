@@ -40,17 +40,46 @@ canvas {
 }
 
 #n64 {
-   width: 900px;
+   width: 800px;
    position: absolute;
-   bottom: 10px;
+   bottom: 0px;
    z-index: 2;
-   left: -120px;
+   left: -140px;
 }
 
 #glare {
    position: absolute;
    left: 410px;
    top: 90px;
-   z-index: 2;
+   z-index: 3;
    opacity: .3;
+}
+
+#screen_lines {
+   position: absolute;
+   left: 350px;
+   top: 50px;
+   z-index: 1;
+   opacity: .2;
+}
+
+#shadow-tv {
+   width: 2000px;
+   height: 400px;
+   position: absolute;
+   background-image: radial-gradient(#000c, #0000, #0000);
+   top: 600px;
+   left: -200px;
+   z-index: 1;
+}
+
+#shadow-n64 {
+   width: 1000px;
+   height: 400px;
+   position: absolute;
+   background-image: radial-gradient(#000c, #0000, #0000);
+   top: 700px;
+   left: -200px;
+   z-index: 1;
+   opacity: .5;
 }

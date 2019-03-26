@@ -2,6 +2,7 @@ body {
    margin: 0;
    padding: 0;
    background: url('../js/assets/images/web/brick_wall.jpg') repeat;
+   overflow: hidden;
 }
 
 canvas {
@@ -22,7 +23,7 @@ canvas {
    height: 280px;
    background-image: url('../js/assets/images/web/wood.jpg');
    position: absolute;
-   bottom: 0px;
+   top: 650px;
 }
 
 #poster {
@@ -36,13 +37,13 @@ canvas {
    width: 400px;
    position: absolute;
    top: 30px;
-   right: 30px;
+   left: 1250px;
 }
 
 #n64 {
    width: 800px;
    position: absolute;
-   bottom: 0px;
+   top: 517px;
    z-index: 2;
    left: -140px;
 }

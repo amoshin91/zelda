@@ -34,7 +34,7 @@ function preload () {
   this.load.image('lava', 'js/assets/images/terrain.png')
   this.load.image('floor', 'js/assets/images/tileset.png')
 	this.load.tilemapTiledJSON("map", 'js/assets/maps/dungeonnew.json')
-	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 36, frameHeight: 30});
+	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 30, frameHeight: 36});
    this.load.spritesheet('gano', 'js/assets/images/sprites/zelda/ganondorf-move-sheet.png',{ frameWidth: 42, frameHeight: 42});
 
 }

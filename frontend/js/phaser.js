@@ -39,7 +39,7 @@ function preload () {
 	this.load.tilemapTiledJSON("map", 'js/assets/maps/dungeonnew.json');
 	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', {frameWidth: 30, frameHeight: 36});
    this.load.spritesheet('gano', 'js/assets/images/sprites/zelda/ganondorf-move-sheet.png', {frameWidth: 42, frameHeight: 42});
-   this.load.spritesheet('coin', 'js/assets/images/sprites/zelda/rupee.png', {frameWidth: 28, frameHeight: 28});
+   this.load.spritesheet('coin', 'js/assets/images/sprites/zelda/rupee.png', {frameWidth: 16, frameHeight: 25});
 };
 
 ////////////////////////////////////////////

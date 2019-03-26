@@ -39,7 +39,7 @@ function create ()
       key: 'left',
       frames: this.anims.generateFrameNumbers('link', {start: 1, end: 6}),
       frameRate: 10,
-      repeat: -1
+      repeat: -1,
    });
 
    this.anims.create({

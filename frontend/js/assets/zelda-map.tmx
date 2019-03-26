@@ -3,6 +3,9 @@
  <tileset firstgid="1" name="mountain_landscape" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="images/mountains.png" width="512" height="512"/>
   <tile id="116">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="1" x="29.5657" y="9.209">
      <polyline points="0,0 -8.72431,15.9946 0.484684,21.3261"/>
@@ -10,6 +13,9 @@
    </objectgroup>
   </tile>
   <tile id="117">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="1" x="1.93874" y="7.75494">
      <polyline points="0,0 9.69368,22.2955 1.45405,24.2342"/>
@@ -17,6 +23,9 @@
    </objectgroup>
   </tile>
   <tile id="132">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="2" x="29.5657" y="30.0504">
      <polyline points="0,0 -15.0252,-10.663 -1.93874,-28.1117"/>
@@ -24,6 +33,9 @@
    </objectgroup>
   </tile>
   <tile id="133">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="1" x="10.1784" y="10.663"/>
     <object id="2" x="8.72431" y="2.9081">
@@ -31,7 +43,55 @@
     </object>
    </objectgroup>
   </tile>
+  <tile id="196">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="197">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="198">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="212">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="213">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="214">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="228">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="229">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="230">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
   <tile id="244">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="2" x="1.93874" y="8.72431">
      <polyline points="0,0 28.5964,17.9333 27.627,-7.75494 7.27026,-7.75494"/>
@@ -39,6 +99,9 @@
    </objectgroup>
   </tile>
   <tile id="245">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="1" x="0" y="1.93874">
      <polygon points="0,0 0.484684,29.5657 31.9891,29.5657 31.5045,-0.969368"/>
@@ -46,6 +109,9 @@
    </objectgroup>
   </tile>
   <tile id="246">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="1" x="31.0198" y="2.9081">
      <polygon points="0,0 -28.5964,26.6576 -30.0504,-2.9081"/>

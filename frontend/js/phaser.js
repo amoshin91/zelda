@@ -18,27 +18,36 @@ const config = {
 
 const game = new Phaser.Game(config);
 let rupeeScore = 0;
+let score;
+let scoreText;
+let gameOver = false
+
 
 function preload () {
 	// this.load.image('floor', 'js/assets/images/sprites/zelda/floor.jpg')
-	this.load.image('tiles', 'js/assets/images/mountains.png')
-	this.load.tilemapTiledJSON("map", 'js/assets/maps/zelda-map.json')
+  // this.load.image('tiles', 'js/assets/images/mountains.png')
+  this.load.image('walls', 'js/assets/images/walls.png')
+  this.load.image('floor', 'js/assets/images/tileset.png')
+	this.load.tilemapTiledJSON("map", 'js/assets/maps/dungeonnew.json')
 	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 24, frameHeight: 24});	
 
 }
 
 function create () {
 
-
-	const map = this.make.tilemap({ key: "map" });
-	const tileset = map.addTilesetImage("mountain_landscape", "tiles");
-	const BackgroundLayer = map.createStaticLayer("ground", tileset, 35, 0);
-	const GroundLayer = map.createStaticLayer("top", tileset, 0, 0);
-
+  // let scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
+  const map = this.make.tilemap({ key: "map" });
+  // const backgroundTileset = map.addTilesetImage("Wallpaper", 'walls')
+  const floorTileset = map.addTilesetImage("tileset", "floor");
+  const wallsTileset = map.addTilesetImage("walls", "walls");
+	const GroundLayer = map.createStaticLayer("Floors", floorTileset, 0, 0);
+  const BackgroundLayer = map.createStaticLayer("Walls", wallsTileset, 0, 0);
+  
 	player = this.physics.add.sprite(400, 300, 'link');
-	enemy = this.physics.add.sprite(300, 200, 'link')
+  enemy = this.physics.add.sprite(300, 200, 'link');
+  
 	cursors = this.input.keyboard.createCursorKeys();
-	this.physics.add.collider(player, GroundLayer);
+  
   this.anims.create({
     key: 'stand',
     frames: this.anims.generateFrameNumbers('link', {start: 0, end: 0}),
@@ -73,6 +82,9 @@ function create () {
 	});
 	
   player.setCollideWorldBounds(true);
+  this.physics.add.collider(player, enemy, this);
+  this.physics.add.collider(player, BackgroundLayer);
+  
 
 }
 
@@ -93,7 +105,7 @@ function update () {
   } else {
     player.anims.play('stand', true)
   };
-	this.physics.moveToObject(enemy, player, 100)
+	// this.physics.moveToObject(enemy, player, 100)
    // this.physics.world.collide()
    // else
    // {

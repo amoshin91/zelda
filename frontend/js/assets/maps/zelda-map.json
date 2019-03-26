@@ -72,26 +72,32 @@
                                      "y":0
                                     }, 
                                     {
-                                     "x":-8.72431174873982,
-                                     "y":15.9945715393563
+                                     "x":-8.72431,
+                                     "y":15.9946
                                     }, 
                                     {
-                                     "x":0.484683986041102,
-                                     "y":21.3260953858085
+                                     "x":0.484684,
+                                     "y":21.3261
                                     }],
                              "rotation":0,
                              "type":"",
                              "visible":true,
                              "width":0,
-                             "x":29.5657231485072,
-                             "y":9.20899573478092
+                             "x":29.5657,
+                             "y":9.209
                             }],
                      "opacity":1,
                      "type":"objectgroup",
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":117,
@@ -110,26 +116,32 @@
                                      "y":0
                                     }, 
                                     {
-                                     "x":9.69367972082202,
-                                     "y":22.2954633578907
+                                     "x":9.69368,
+                                     "y":22.2955
                                     }, 
                                     {
-                                     "x":1.4540519581233,
-                                     "y":24.2341993020551
+                                     "x":1.45405,
+                                     "y":24.2342
                                     }],
                              "rotation":0,
                              "type":"",
                              "visible":true,
                              "width":0,
-                             "x":1.9387359441644,
-                             "y":7.75494377665762
+                             "x":1.93874,
+                             "y":7.75494
                             }],
                      "opacity":1,
                      "type":"objectgroup",
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":132,
@@ -148,26 +160,32 @@
                                      "y":0
                                     }, 
                                     {
-                                     "x":-15.0252035672741,
-                                     "y":-10.6630476929042
+                                     "x":-15.0252,
+                                     "y":-10.663
                                     }, 
                                     {
-                                     "x":-1.9387359441644,
-                                     "y":-28.1116711903839
+                                     "x":-1.93874,
+                                     "y":-28.1117
                                     }],
                              "rotation":0,
                              "type":"",
                              "visible":true,
                              "width":0,
-                             "x":29.5657231485072,
-                             "y":30.0504071345483
+                             "x":29.5657,
+                             "y":30.0504
                             }],
                      "opacity":1,
                      "type":"objectgroup",
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":133,
@@ -184,8 +202,8 @@
                              "type":"",
                              "visible":true,
                              "width":0,
-                             "x":10.1783637068631,
-                             "y":10.6630476929042
+                             "x":10.1784,
+                             "y":10.663
                             }, 
                             {
                              "height":0,
@@ -197,26 +215,113 @@
                                      "y":0
                                     }, 
                                     {
-                                     "x":6.30089181853431,
-                                     "y":8.72431174873982
+                                     "x":6.30089,
+                                     "y":8.72431
                                     }, 
                                     {
-                                     "x":-5.81620783249322,
-                                     "y":20.8414113997674
+                                     "x":-5.81621,
+                                     "y":20.8414
                                     }],
                              "rotation":0,
                              "type":"",
                              "visible":true,
                              "width":0,
-                             "x":8.72431174873982,
-                             "y":2.90810391624661
+                             "x":8.72431,
+                             "y":2.9081
                             }],
                      "opacity":1,
                      "type":"objectgroup",
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":196,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":197,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":198,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":212,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":213,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":214,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":228,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":229,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":230,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":244,
@@ -235,30 +340,36 @@
                                      "y":0
                                     }, 
                                     {
-                                     "x":28.596355176425,
-                                     "y":17.9333074835207
+                                     "x":28.5964,
+                                     "y":17.9333
                                     }, 
                                     {
-                                     "x":27.6269872043428,
-                                     "y":-7.75494377665762
+                                     "x":27.627,
+                                     "y":-7.75494
                                     }, 
                                     {
-                                     "x":7.27025979061652,
-                                     "y":-7.75494377665762
+                                     "x":7.27026,
+                                     "y":-7.75494
                                     }],
                              "rotation":0,
                              "type":"",
                              "visible":true,
                              "width":0,
-                             "x":1.9387359441644,
-                             "y":8.72431174873982
+                             "x":1.93874,
+                             "y":8.72431
                             }],
                      "opacity":1,
                      "type":"objectgroup",
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":245,
@@ -277,30 +388,36 @@
                                      "y":0
                                     }, 
                                     {
-                                     "x":0.484683986041101,
-                                     "y":29.5657231485072
+                                     "x":0.484684,
+                                     "y":29.5657
                                     }, 
                                     {
-                                     "x":31.9891430787127,
-                                     "y":29.5657231485072
+                                     "x":31.9891,
+                                     "y":29.5657
                                     }, 
                                     {
-                                     "x":31.5044590926716,
-                                     "y":-0.969367972082202
+                                     "x":31.5045,
+                                     "y":-0.969368
                                     }],
                              "rotation":0,
                              "type":"",
                              "visible":true,
                              "width":0,
                              "x":0,
-                             "y":1.9387359441644
+                             "y":1.93874
                             }],
                      "opacity":1,
                      "type":"objectgroup",
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }, 
                 {
                  "id":246,
@@ -319,26 +436,32 @@
                                      "y":0
                                     }, 
                                     {
-                                     "x":-28.596355176425,
-                                     "y":26.6576192322606
+                                     "x":-28.5964,
+                                     "y":26.6576
                                     }, 
                                     {
-                                     "x":-30.0504071345483,
-                                     "y":-2.90810391624661
+                                     "x":-30.0504,
+                                     "y":-2.9081
                                     }],
                              "rotation":0,
                              "type":"",
                              "visible":true,
                              "width":0,
-                             "x":31.0197751066305,
-                             "y":2.90810391624661
+                             "x":31.0198,
+                             "y":2.9081
                             }],
                      "opacity":1,
                      "type":"objectgroup",
                      "visible":true,
                      "x":0,
                      "y":0
-                    }
+                    },
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
                 }],
          "tilewidth":32
         }],

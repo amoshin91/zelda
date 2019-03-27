@@ -84,3 +84,11 @@ canvas {
    z-index: 1;
    opacity: .5;
 }
+
+#screen_static {
+   position: absolute;
+   left: 350px;
+   top: 60px;
+   z-index: 1;
+   opacity: .09;
+}

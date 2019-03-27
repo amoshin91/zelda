@@ -29,33 +29,29 @@ function preload () {
   this.load.image('walls', 'js/assets/images/walls.png')
   this.load.image('floor', 'js/assets/images/tileset.png')
 	this.load.tilemapTiledJSON("map", 'js/assets/maps/dungeonnew.json')
-<<<<<<< HEAD
-	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 24, frameHeight: 24});	
-=======
 	this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png',{ frameWidth: 30, frameHeight: 36});
    this.load.spritesheet('gano', 'js/assets/images/sprites/zelda/ganondorf-move-sheet.png',{ frameWidth: 42, frameHeight: 42});
->>>>>>> bd2c70ed5d7a12ada8adc2cf40396cbb1ca828a1
+
 
 }
 
 function create () {
 
-<<<<<<< HEAD
+
   // let scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
-=======
->>>>>>> bd2c70ed5d7a12ada8adc2cf40396cbb1ca828a1
+
   const map = this.make.tilemap({ key: "map" });
   // const backgroundTileset = map.addTilesetImage("Wallpaper", 'walls')
   const floorTileset = map.addTilesetImage("tileset", "floor");
   const wallsTileset = map.addTilesetImage("walls", "walls");
 	const GroundLayer = map.createStaticLayer("Floors", floorTileset, 0, 0);
   const BackgroundLayer = map.createStaticLayer("Walls", wallsTileset, 0, 0);
-  
+
 	player = this.physics.add.sprite(400, 300, 'link');
   // enemy = this.physics.add.sprite(300, 200, 'link');
-  
+
 	cursors = this.input.keyboard.createCursorKeys();
-  
+
   this.anims.create({
     key: 'stand',
     frames: this.anims.generateFrameNumbers('link', {start: 0, end: 0}),
@@ -88,11 +84,11 @@ function create () {
     frameRate: 10,
     repeat: -1
 	});
-	
+
   // player.setCollideWorldBounds(true);
   // this.physics.add.collider(player, enemy, this);
   // this.physics.add.collider(player, BackgroundLayer);
-  
+
 
 }
 

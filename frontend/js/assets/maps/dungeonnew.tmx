@@ -1215,7 +1215,7 @@
   </tile>
  </tileset>
  <tileset firstgid="449" name="terrain" tilewidth="32" tileheight="32" tilecount="483" columns="21">
-  <image source="../../../../../../../Documents/terrain/terrain.png" width="672" height="736"/>
+  <image source="../images/terrain.png" width="672" height="736"/>
   <tile id="0">
    <properties>
     <property name="collides" type="bool" value="true"/>

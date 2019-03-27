@@ -31,6 +31,7 @@ class Dungeon extends Phaser.Scene {
     const camera = this.cameras.main
     camera.startFollow(this.player)
     camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
+
     this.anims.create({
       key: 'stand',
       frames: this.anims.generateFrameNumbers('link', {start: 0, end: 0}),
@@ -41,71 +42,71 @@ class Dungeon extends Phaser.Scene {
       frameRate: 10,
       repeat: -1
     });
-  
+
     this.anims.create({
       key: 'right',
       frames: this.anims.generateFrameNumbers('link', {start: 7, end: 12}),
       frameRate: 10,
       repeat: -1
     });
-  
+
     this.anims.create({
       key: 'down',
       frames: this.anims.generateFrameNumbers('link', { start: 21, end: 28 }),
       frameRate: 10,
       repeat: -1
     });
-  
+
     this.anims.create({
       key: 'up',
       frames: this.anims.generateFrameNumbers('link', { start: 13, end: 20 }),
       frameRate: 10,
       repeat: -1
     });
-  
+
     this.anims.create({
       key: 'ganLeft',
       frames: this.anims.generateFrameNumbers('gano', { start: 2, end: 8 }),
       frameRate: 10,
       repeat: -1,
     })
-  // Ganon's 
+  // Ganon's
     this.anims.create({
       key: 'ganRight',
       frames: this.anims.generateFrameNumbers('gano', { start: 9, end: 15 }),
       frameRate: 10,
       repeat: -1,
     })
-  
+
     this.anims.create({
       key: 'ganDown',
       frames: this.anims.generateFrameNumbers('gano', { start: 0, end: 0 }),
       frameRate: 10,
       repeat: -1,
     })
-  
+
     this.anims.create({
       key: 'ganUp',
       frames: this.anims.generateFrameNumbers('gano', { start: 1, end: 1 }),
       frameRate: 10,
       repeat: -1,
     })
-  
+
     this.anims.create({
       key: 'ganStand',
       frames: this.anims.generateFrameNumbers('gano', { start: 0, end: 0 }),
       repeat: -1,
     })
-  
+
     this.anims.create({
       key: 'coin',
       frames: this.anims.generateFrameNumbers('coin', { start: 0, end: 9 }),
       frameRate: 10,
       repeat: -1
     })
-  
+
     // this.player.setCollideWorldBounds(true);
-  
+
     this.physics.add.collider(this.player, this.enemy, this.collisionHandler, null, this)
     this.physics.add.collider(this.player, backgroundLayer)
   }
@@ -146,14 +147,18 @@ class Dungeon extends Phaser.Scene {
     }
     this.physics.moveToObject(this.enemy, this.player, 85)
   }
-  
+
 
   collisionHandler () {
     this.player.health -= 1
     console.log("you've been hit!!")
+<<<<<<< HEAD
 
     if (this.player.health <= 0) {
       console.log('gameover')
     } 
   } 
+=======
+  }
+>>>>>>> master
 }

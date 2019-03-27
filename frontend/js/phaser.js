@@ -48,7 +48,7 @@ function create () {
   const BackgroundLayer = map.createStaticLayer("Walls", wallsTileset, 0, 0);
 
 	player = this.physics.add.sprite(400, 300, 'link');
-  // enemy = this.physics.add.sprite(300, 200, 'link');
+  enemy = this.physics.add.sprite(300, 200, 'gano');
 
 	cursors = this.input.keyboard.createCursorKeys();
 
@@ -85,8 +85,22 @@ function create () {
     repeat: -1
 	});
 
+   this.anims.create({
+     key: 'ganleft',
+     frames: this.anims.generateFrameNumbers('gano', {start: 2, end: 8}),
+     frameRate: 10,
+     repeat: -1
+   });
+
+   this.anims.create({
+     key: 'ganright',
+     frames: this.anims.generateFrameNumbers('gano', {start: 9, end: 15}),
+     frameRate: 10,
+     repeat: -1
+   });
+
   // player.setCollideWorldBounds(true);
-  // this.physics.add.collider(player, enemy, this);
+  this.physics.add.collider(player, enemy, this);
   // this.physics.add.collider(player, BackgroundLayer);
 
 
@@ -109,7 +123,14 @@ function update () {
   } else {
     player.anims.play('stand', true)
   };
-	// this.physics.moveToObject(enemy, player, 100)
+
+	this.physics.moveToObject(enemy, player, 100)
+
+   if (enemy.body.velocity.x < 0) {
+      enemy.anims.play('ganleft', true)
+   } else {
+      enemy.anims.play('ganright', true)
+   }
    // this.physics.world.collide()
    // else
    // {

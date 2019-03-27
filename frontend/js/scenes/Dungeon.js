@@ -5,6 +5,7 @@ class Dungeon extends Phaser.Scene {
 
   preload () {
     // console.log('im here')
+    this.load.image('heart', 'js/assets/images/sprites/zelda/PixelArt.png')
     this.load.image('walls', 'js/assets/images/walls.png')
     this.load.image('lava', 'js/assets/images/terrain.png')
     this.load.image('floor', 'js/assets/images/tileset.png')
@@ -19,12 +20,11 @@ class Dungeon extends Phaser.Scene {
     const wallsTileset = map.addTilesetImage('walls', 'walls')
     const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
     const backgroundLayer = map.createStaticLayer('Walls', wallsTileset, 0, 0)
-
+    let healthBar = this.add.sprite(0, 0, 'heart')
     // const spawnPoint = map.findObject("Obj1", obj => obj.name === "SpawnPoint");
     this.player = this.physics.add.sprite(400, 300, 'link')
     this.enemy = this.physics.add.sprite(300, 200, 'gano')
     this.player.health = 3
-
     backgroundLayer.setCollisionBetween(0, 482)
     this.physics.add.collider(this.player, backgroundLayer)
     backgroundLayer.setCollisionByProperty({ collides: true })
@@ -151,5 +151,9 @@ class Dungeon extends Phaser.Scene {
   collisionHandler () {
     this.player.health -= 1
     console.log("you've been hit!!")
+
+    if (this.player.health <= 0) {
+      console.log('gameover')
+    } 
   } 
 }

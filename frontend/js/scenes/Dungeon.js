@@ -152,6 +152,6 @@ class Dungeon extends Phaser.Scene {
   collisionHandler () {
     this.player.health -= 1
     console.log("you've been hit!!")
-    this.scene.start('GameOverScene')
+    // this.scene.start('GameOverScene')
   }
 }

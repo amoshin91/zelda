@@ -8,14 +8,15 @@ class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.20, 'menu')
-    let playBtn = this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.20, 'playbtn')
+    this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.68, 'background')
+    this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.39, 'menu')
+    let playBtn = this.add.image(this.game.renderer.width / 2.05, this.game.renderer.height * 0.83, 'playbtn')
 
     playBtn.setInteractive();
     playBtn.on("pointerover", ()=> {
       this.scene.start('Dungeon')
     })
-  } 
+  }
 
   update() {
 

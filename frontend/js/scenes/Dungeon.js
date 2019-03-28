@@ -4,13 +4,14 @@ class Dungeon extends Phaser.Scene {
   }
 
   preload () {
-    // console.log('im here')
+
+    console.log('im here')
     this.load.image('rupee', 'js/assets/images/sprites/zelda/rupee-single.png')
     this.load.image('heart', 'js/assets/images/sprites/zelda/PixelArt.png')
     this.load.image('walls', 'js/assets/images/walls.png')
     this.load.image('lava', 'js/assets/images/terrain.png')
     this.load.image('floor', 'js/assets/images/tileset.png')
-    this.load.tilemapTiledJSON('map', 'js/assets/maps/dungeonnew.json')
+    this.load.tilemapTiledJSON('dungeon', 'js/assets/maps/dungeonnew.json')
     this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', { frameWidth: 30, frameHeight: 36 })
     this.load.spritesheet('gano', 'js/assets/images/sprites/zelda/ganondorf-move-sheet.png', { frameWidth: 42, frameHeight: 42 })
   }
@@ -18,19 +19,17 @@ class Dungeon extends Phaser.Scene {
   create () {
     let score = 0
     const text = this.add.text(100, 100, 'Score:' + score)
-    const map = this.make.tilemap({ key: 'map' })
+    const map = this.make.tilemap({ key: 'dungeon' })
     const floorTileset = map.addTilesetImage('tileset', 'floor')
     const wallsTileset = map.addTilesetImage('walls', 'walls')
-    const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
     const backgroundLayer = map.createStaticLayer('Walls', wallsTileset, 0, 0)
-    // let healthBar = this.add.sprite(100, 100, 'heart')
-    // this.player.addChild(healthBar)
+    const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
     const spawnPoint = map.findObject('Obj1', obj => obj.name === 'SpawnPoint')
     const enemySpawnPoint = map.findObject('Obj2', obj => obj.name === 'EnemySpawnPoint')
     this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
     this.enemy = this.physics.add.sprite(enemySpawnPoint.x, enemySpawnPoint.y, 300, 200, 'gano')
     this.player.health = 8
-    backgroundLayer.setCollisionBetween(0, 482)
+    // backgroundLayer.setCollisionBetween(0, 482)
     this.physics.add.collider(this.player, backgroundLayer)
     backgroundLayer.setCollisionByProperty({ collides: true })
     const camera = this.cameras.main
@@ -153,11 +152,6 @@ class Dungeon extends Phaser.Scene {
 
 
   collisionHandler () {
-<<<<<<< HEAD
-    this.player.health -= 1
-    console.log("you've been hit!!")
-    // this.scene.start('GameOverScene')
-=======
     if (!this.player.invincible) {
       this.player.health = this.player.health - 0.5
       console.log(this.player.health)
@@ -167,6 +161,5 @@ class Dungeon extends Phaser.Scene {
       this.scene.start('GameOverScene')
       console.log('Gameover')
     }
->>>>>>> cristian
   }
 }

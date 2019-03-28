@@ -305,16 +305,31 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="18" y="29">
+    <polygon points="0,0 14,-17 14,0"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="61">
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="2" y="15">
+    <polygon points="0,0 29,-1 28,15 1,15"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="62">
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="4" y="11">
+    <polygon points="0,0 16,20 -3,21"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="63">
   <properties>
@@ -410,6 +425,11 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="8" y="2">
+    <polygon points="0,0 3,27 24,28 23,0"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="82">
   <properties>
@@ -420,6 +440,11 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="17" y="2">
+    <polygon points="0,0 1,29 -14,29 -14,2"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="84">
   <properties>
@@ -515,16 +540,31 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="13" y="4">
+    <polyline points="0,0 18,17"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="103">
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="2" x="30" y="2">
+    <polyline points="0,0 -27,-1 -28,13 1,14"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="104">
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="2" y="23">
+    <polygon points="0,0 18,-21 1,-22"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="105">
   <properties>
@@ -845,16 +885,31 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="16" y="30">
+    <polygon points="0,0 16,-21 17,-1"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="169">
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="-1" y="14">
+    <polyline points="0,0 32,-2 32,3"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="170">
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="2" y="12">
+    <polygon points="0,0 20,19 -1,19"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="171">
   <properties>
@@ -950,6 +1005,11 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="14" y="0">
+    <polygon points="0,0 1,32 16,30"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="190">
   <properties>
@@ -960,6 +1020,11 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="18" y="0">
+    <polyline points="0,0 0,27"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="192">
   <properties>
@@ -1055,16 +1120,31 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="14" y="2">
+    <polyline points="0,0 18,17 17,1 7,1"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="211">
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="0" y="18">
+    <polygon points="0,0 31,1 31,-12 3,-13"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="212">
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="2" y="17">
+    <polyline points="0,0 15,-14"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="213">
   <properties>
@@ -1125,6 +1205,11 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="4" y="30">
+    <polygon points="0,0 28,-9 27,-32 -2,-28"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="225">
   <properties>
@@ -2300,6 +2385,11 @@
   <properties>
    <property name="collides" type="bool" value="true"/>
   </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="15" y="18">
+    <ellipse/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="459">
   <properties>

@@ -5,6 +5,7 @@ class Dungeon extends Phaser.Scene {
 
   preload () {
     // console.log('im here')
+    this.load.image('rupee', 'js/assets/images/sprites/zelda/rupee-single.png')
     this.load.image('heart', 'js/assets/images/sprites/zelda/PixelArt.png')
     this.load.image('walls', 'js/assets/images/walls.png')
     this.load.image('lava', 'js/assets/images/terrain.png')
@@ -15,37 +16,41 @@ class Dungeon extends Phaser.Scene {
   }
 
   create () {
+    let score = 0
+    const text = this.add.text(100, 100, 'Score:' + score)
     const map = this.make.tilemap({ key: 'map' })
     const floorTileset = map.addTilesetImage('tileset', 'floor')
     const wallsTileset = map.addTilesetImage('walls', 'walls')
     const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
     const backgroundLayer = map.createStaticLayer('Walls', wallsTileset, 0, 0)
-    let healthBar = this.add.sprite(0, 0, 'heart')
-    // const spawnPoint = map.findObject("Obj1", obj => obj.name === "SpawnPoint");
-    this.player = this.physics.add.sprite(400, 300, 'link')
-    this.enemy = this.physics.add.sprite(300, 200, 'gano')
-    this.player.health = 3
+    // let healthBar = this.add.sprite(100, 100, 'heart')
+    // this.player.addChild(healthBar)
+    const spawnPoint = map.findObject('Obj1', obj => obj.name === 'SpawnPoint')
+    const enemySpawnPoint = map.findObject('Obj2', obj => obj.name === 'EnemySpawnPoint')
+    this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
+    this.enemy = this.physics.add.sprite(enemySpawnPoint.x, enemySpawnPoint.y, 300, 200, 'gano')
+    this.player.health = 8
     backgroundLayer.setCollisionBetween(0, 482)
     this.physics.add.collider(this.player, backgroundLayer)
     backgroundLayer.setCollisionByProperty({ collides: true })
     const camera = this.cameras.main
     camera.startFollow(this.player)
     camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
-
+    // ========== Link's Animation Frame ===========================
     this.anims.create({
       key: 'stand',
-      frames: this.anims.generateFrameNumbers('link', {start: 0, end: 0}),
+      frames: this.anims.generateFrameNumbers('link', { start: 0, end: 0 })
     })
     this.anims.create({
       key: 'left',
-      frames: this.anims.generateFrameNumbers('link', {start: 1, end: 6}),
+      frames: this.anims.generateFrameNumbers('link', { start: 1, end: 6 }),
       frameRate: 10,
       repeat: -1
     });
 
     this.anims.create({
       key: 'right',
-      frames: this.anims.generateFrameNumbers('link', {start: 7, end: 12}),
+      frames: this.anims.generateFrameNumbers('link', { start: 7, end: 12 }),
       frameRate: 10,
       repeat: -1
     });
@@ -63,7 +68,7 @@ class Dungeon extends Phaser.Scene {
       frameRate: 10,
       repeat: -1
     });
-
+    // ======================== Ganon's Animation ========================
     this.anims.create({
       key: 'ganLeft',
       frames: this.anims.generateFrameNumbers('gano', { start: 2, end: 8 }),
@@ -104,20 +109,18 @@ class Dungeon extends Phaser.Scene {
       frameRate: 10,
       repeat: -1
     })
-
+  
     // this.player.setCollideWorldBounds(true);
 
     this.physics.add.collider(this.player, this.enemy, this.collisionHandler, null, this)
-    this.physics.add.collider(this.player, backgroundLayer)
+    this.physics.add.collider(this.player, this.enemy, backgroundLayer)
   }
 
 
   update () {
     let cursors = this.input.keyboard.createCursorKeys()
     let linkSpeed = 3
-
-
-
+    
     if (cursors.left.isDown) {
       this.player.x -= linkSpeed
       this.player.anims.play('left', true)
@@ -150,8 +153,14 @@ class Dungeon extends Phaser.Scene {
 
 
   collisionHandler () {
-    this.player.health -= 1
-    console.log("you've been hit!!")
-    this.scene.start('GameOverScene')
+    if (!this.player.invincible) {
+      this.player.health = this.player.health - 0.5
+      console.log(this.player.health)
+      console.log("you've been hit!!")
+    }
+    if (this.player.health <= 0) {
+      this.scene.start('GameOverScene')
+      console.log('Gameover')
+    }
   }
 }

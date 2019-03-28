@@ -12,5 +12,8 @@ const config = {
   },
   scene: [LoadingScene, MenuScene, HyruleScene, Dungeon, GameOverScene]
 };
+let player;
+let score;
+
 
 const game = new Phaser.Game(config);

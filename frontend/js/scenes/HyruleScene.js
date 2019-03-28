@@ -31,7 +31,7 @@ class HyruleScene extends Phaser.Scene {
     const upperMountainsTileSet = hyrule.createStaticLayer('UpperMountain', terrainTileSet, 0, 0)
     const outerGrass = hyrule.createStaticLayer('OuterGrass', terrainTileSet, 0, 0)
     const entranceTileset = hyrule.createStaticLayer('Entrance', terrainTileSet, 0, 0)
-
+    const spawnPoint = hyrule.findObject('Object Layer 2', obj => obj.name === 'Spawn')
     entranceTileset.setCollisionByProperty({ collides: true })
     
     const debugGraphics = this.add.graphics().setAlpha(0.75);
@@ -44,7 +44,7 @@ class HyruleScene extends Phaser.Scene {
     // console.log(you)
     
     // outerGrass.setCollisionByProperty({ collides: true })
-    player = this.physics.add.sprite(400, 300, 'link')
+    player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
     const camera = this.cameras.main
     camera.startFollow(player)
     camera.setBounds(0, 0, hyrule.widthInPixels, hyrule.heightInPixels)

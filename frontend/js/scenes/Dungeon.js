@@ -32,14 +32,14 @@ class Dungeon extends Phaser.Scene {
 
     const spawnPoint = map.findObject('Obj1', obj => obj.name === 'SpawnPoint')
     const enemySpawnPoint = map.findObject('Obj2', obj => obj.name === 'EnemySpawnPoint')
-    this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
+    player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
     this.enemy = this.physics.add.sprite(enemySpawnPoint.x, enemySpawnPoint.y, 300, 200, 'gano')
-    this.player.health = 8
-    // backgroundLayer.setCollisionBetween(0, 482)
-    this.physics.add.collider(this.player, backgroundLayer)
+    player.health = 8
+    backgroundLayer.setCollisionBetween(1, 50);
+    this.physics.add.collider(player, backgroundLayer)
     backgroundLayer.setCollisionByProperty({ collides: true })
     const camera = this.cameras.main
-    camera.startFollow(this.player)
+    camera.startFollow(player)
     camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
     // ========== Link's Animation Frame ===========================
     this.anims.create({
@@ -117,8 +117,8 @@ class Dungeon extends Phaser.Scene {
 
     // this.player.setCollideWorldBounds(true);
 
-    this.physics.add.collider(this.player, this.enemy, this.collisionHandler, null, this)
-    this.physics.add.collider(this.player, this.enemy, backgroundLayer)
+    this.physics.add.collider(player, this.enemy, this.collisionHandler, null, this)
+    this.physics.add.collider(player, this.enemy, backgroundLayer)
   }
 
 
@@ -127,19 +127,19 @@ class Dungeon extends Phaser.Scene {
     let linkSpeed = 3
 
     if (cursors.left.isDown) {
-      this.player.x -= linkSpeed
-      this.player.anims.play('left', true)
+      player.x -= linkSpeed
+      player.anims.play('left', true)
     } else if (cursors.right.isDown) {
-      this.player.x += linkSpeed
-      this.player.anims.play('right', true)
+      player.x += linkSpeed
+      player.anims.play('right', true)
     } else if (cursors.down.isDown) {
-      this.player.y += linkSpeed
-      this.player.anims.play('down', true)
+      player.y += linkSpeed
+      player.anims.play('down', true)
     } else if (cursors.up.isDown) {
-      this.player.y -= linkSpeed
-      this.player.anims.play('up', true)
+      player.y -= linkSpeed
+      player.anims.play('up', true)
     } else {
-      this.player.anims.play('stand', true)
+      player.anims.play('stand', true)
     };
 
     if (this.enemy.body.velocity.x > 0) {
@@ -153,13 +153,13 @@ class Dungeon extends Phaser.Scene {
     } else {
       this.enemy.anims.play('ganStand', true)
     }
-    this.physics.moveToObject(this.enemy, this.player, 85)
+    this.physics.moveToObject(this.enemy, player, 85)
   }
 
 
   collisionHandler () {
-    if (!this.player.invincible) {
-      this.player.health = this.player.health - 0.5
+    if (!player.invincible) {
+      player.health = player.health - 0.5
       console.log(this.player.health)
       console.log("you've been hit!!")
     }
@@ -168,4 +168,6 @@ class Dungeon extends Phaser.Scene {
       console.log('Gameover')
     }
   }
+
+
 }

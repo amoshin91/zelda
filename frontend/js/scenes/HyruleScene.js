@@ -23,7 +23,7 @@ class HyruleScene extends Phaser.Scene {
     // const hyruleTileSet = hyrule.addTilesetImage('32x32_map_tile v3.1 [MARGINLESS]', 'ground')
     const terrainTileSet = hyrule.addTilesetImage('terrain', 'terrain')
 
-    
+
     const ground = hyrule.createStaticLayer('InnerGrass', terrainTileSet, 0, 0)
     const waterTiles = hyrule.createStaticLayer('Water', terrainTileSet, 0, 0)
     const trees = hyrule.createStaticLayer('Trees', terrainTileSet, 0, 0)
@@ -33,7 +33,7 @@ class HyruleScene extends Phaser.Scene {
     const entranceTileset = hyrule.createStaticLayer('Entrance', terrainTileSet, 0, 0)
     const spawnPoint = hyrule.findObject('Object Layer 2', obj => obj.name === 'Spawn')
     entranceTileset.setCollisionByProperty({ collides: true })
-    
+
     const debugGraphics = this.add.graphics().setAlpha(0.75);
     entranceTileset.renderDebug(debugGraphics, {
       tileColor: null, // Color of non-colliding tiles
@@ -42,7 +42,7 @@ class HyruleScene extends Phaser.Scene {
     });
     // let you = hyrule.setCollisionBetween(0, 482, true, outerGrass, true)
     // console.log(you)
-    
+
     // outerGrass.setCollisionByProperty({ collides: true })
     player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
     const camera = this.cameras.main
@@ -79,12 +79,12 @@ class HyruleScene extends Phaser.Scene {
       frameRate: 10,
       repeat: -1
     });
-    
+
     let entranceToDungeon = hyrule.findObject('EntranceObj', obj => obj.name === 'Enter')
     this.physics.add.collider(player, entranceTileset)
 
   }
-  
+
   update () {
     if (player.x === 1072 && player.y === 300) {
       this.scene.start('Dungeon')
@@ -106,7 +106,7 @@ class HyruleScene extends Phaser.Scene {
       player.anims.play('up', true)
     } else {
       player.anims.play('stand', true)
-      
+
     };
 
   }

@@ -1,10 +1,10 @@
-class MenuScene extends Phaser.Scene {
+ class MenuScene extends Phaser.Scene {
   constructor() {
     super({ key: 'MenuScene'})
   }
 
   preload() {
-
+    
   }
 
   create() {
@@ -14,7 +14,7 @@ class MenuScene extends Phaser.Scene {
 
     playBtn.setInteractive();
     playBtn.on("pointerover", ()=> {
-      this.scene.start('Dungeon')
+      this.scene.start('HyruleScene')
     })
   }
 

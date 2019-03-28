@@ -5,7 +5,7 @@ class HyruleScene extends Phaser.Scene {
 
   preload () {
     this.load.image('terrain', 'js/assets/images/terrain.png')
-    // this.load.image('ground', 'js/assets/images/32x32_map_tile v3.1 [MARGINLESS].png')
+    this.load.image('ground', 'js/assets/maps/32x32_map_tile v3.1 [MARGINLESS].png')
     this.load.tilemapTiledJSON('hyrule', 'js/assets/maps/hyrule.json')
     this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', { frameWidth: 30, frameHeight: 36 })
   }
@@ -20,13 +20,13 @@ class HyruleScene extends Phaser.Scene {
 .setScrollFactor(0)
 .setDepth(30);
     let hyrule = this.make.tilemap({ key: 'hyrule' })
-    // const hyruleTileSet = hyrule.addTilesetImage('32x32_map_tile v3.1 [MARGINLESS]', 'ground')
+    const hyruleTileSet = hyrule.addTilesetImage('32x32_map_tile v3.1 [MARGINLESS]', 'ground')
     const terrainTileSet = hyrule.addTilesetImage('terrain', 'terrain')
 
 
     const ground = hyrule.createStaticLayer('InnerGrass', terrainTileSet, 0, 0)
     const waterTiles = hyrule.createStaticLayer('Water', terrainTileSet, 0, 0)
-    const trees = hyrule.createStaticLayer('Trees', terrainTileSet, 0, 0)
+    const trees = hyrule.createStaticLayer('Trees', hyruleTileSet, 0, 0)
     const mountainsTileSet = hyrule.createStaticLayer('Mountains', terrainTileSet, 0, 0)
     const upperMountainsTileSet = hyrule.createStaticLayer('UpperMountain', terrainTileSet, 0, 0)
     const outerGrass = hyrule.createStaticLayer('OuterGrass', terrainTileSet, 0, 0)

@@ -4,47 +4,56 @@ class HyruleScene extends Phaser.Scene {
   }
 
   preload () {
-    this.load.image('terrain', 'js/assets/images/terrain.png')
-    // this.load.image('ground', 'js/assets/images/32x32_map_tile v3.1 [MARGINLESS].png')
     this.load.tilemapTiledJSON('hyrule', 'js/assets/maps/hyrule.json')
+    this.load.image('terrain', 'js/assets/images/terrain.png')
+    this.load.image('tiles', 'js/assets/maps/32x32_map_tile v3.1 [MARGINLESS].png')
     this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', { frameWidth: 30, frameHeight: 36 })
   }
-
   create () {
-  this.add
-  .text(16, 16, 'Arrow keys to move\nPress "D" to show hitboxes', {
-    font: "18px monospace",
-    fill: "#000000",
-    padding: { x: 30, y: 10 },
-    })
-.setScrollFactor(0)
-.setDepth(30);
+    this.add
+      .text(16, 16, 'Arrow keys to move\nPress "D" to show hitboxes', {
+        font: "18px monospace",
+        fill: "#000000",
+        padding: { x: 30, y: 10 }
+      })
+      .setScrollFactor(0)
+      .setDepth(30);
     let hyrule = this.make.tilemap({ key: 'hyrule' })
-    // const hyruleTileSet = hyrule.addTilesetImage('32x32_map_tile v3.1 [MARGINLESS]', 'ground')
+    const hyruleTileSet = hyrule.addTilesetImage('32x32_map_tile v3.1 [MARGINLESS]', 'tiles')
     const terrainTileSet = hyrule.addTilesetImage('terrain', 'terrain')
-
-    
-    const ground = hyrule.createStaticLayer('InnerGrass', terrainTileSet, 0, 0)
-    const waterTiles = hyrule.createStaticLayer('Water', terrainTileSet, 0, 0)
-    const trees = hyrule.createStaticLayer('Trees', terrainTileSet, 0, 0)
-    const mountainsTileSet = hyrule.createStaticLayer('Mountains', terrainTileSet, 0, 0)
-    const upperMountainsTileSet = hyrule.createStaticLayer('UpperMountain', terrainTileSet, 0, 0)
-    const outerGrass = hyrule.createStaticLayer('OuterGrass', terrainTileSet, 0, 0)
-    const entranceTileset = hyrule.createStaticLayer('Entrance', terrainTileSet, 0, 0)
+    const innerGrass = hyrule.createStaticLayer('InnerGrass', [terrainTileSet], 0, 0).setDepth(-1)
+    const waterTiles = hyrule.createStaticLayer('Water', [terrainTileSet], 0, 0)
+    const trees = hyrule.createStaticLayer('Trees', [hyruleTileSet], 0, 0).setDepth(0)
+    const mountainsTileSet = hyrule.createStaticLayer('Mountains', [terrainTileSet], 0, 0)
+    const upperMountainsTileSet = hyrule.createStaticLayer('UpperMountain', [terrainTileSet], 0, 0)
+    const outerGrass = hyrule.createStaticLayer('OuterGrass', [hyruleTileSet], 0, 0)
+    const entranceTileset = hyrule.createStaticLayer('Entrance', [terrainTileSet], 0, 0)
     const spawnPoint = hyrule.findObject('Object Layer 2', obj => obj.name === 'Spawn')
-    entranceTileset.setCollisionByProperty({ collides: true })
-    
-    const debugGraphics = this.add.graphics().setAlpha(0.75);
-    entranceTileset.renderDebug(debugGraphics, {
+    player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link').setDepth(0)
+    // entranceTileset.setCollision([683])
+    waterTiles.setTileLocationCallback([770, 688, 750, 793, 687, 771, 772], () => {
+      console.log('water')
+    })
+    this.physics.add.collider(player, entranceTileset)
+    this.physics.add.collider(player, waterTiles)
+    this.physics.add.collider(player, trees)
+    this.physics.add.collider(player, mountainsTileSet)
+    this.physics.add.collider(player, outerGrass)
+    this.physics.add.collider(player, upperMountainsTileSet)
+    entranceTileset.setTileLocationCallback(33, 9, 1, 1, () => {
+      this.scene.start('Dungeon')
+    })
+
+    trees.setTileIndexCallback(8, () => alert('supppp'), this);
+
+    const debugGraphics = this.add.graphics().setAlpha(0.75)
+    trees.renderDebug(debugGraphics, {
       tileColor: null, // Color of non-colliding tiles
       collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
       faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
-    });
-    // let you = hyrule.setCollisionBetween(0, 482, true, outerGrass, true)
-    // console.log(you)
-    
-    // outerGrass.setCollisionByProperty({ collides: true })
-    player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
+    })
+    outerGrass.setCollisionByProperty({ collides: true })
+    this.physics.add.collider(player, trees)
     const camera = this.cameras.main
     camera.startFollow(player)
     camera.setBounds(0, 0, hyrule.widthInPixels, hyrule.heightInPixels)
@@ -78,18 +87,12 @@ class HyruleScene extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers('link', { start: 13, end: 20 }),
       frameRate: 10,
       repeat: -1
-    });
-    
-    let entranceToDungeon = hyrule.findObject('EntranceObj', obj => obj.name === 'Enter')
-    this.physics.add.collider(player, entranceTileset)
-
+    })
+    // player.setCollideWorldBounds(true)
+    // this.game.physics.arcade.overlap(player, trees, null, this)
   }
   
   update () {
-    if (player.x === 1072 && player.y === 300) {
-      this.scene.start('Dungeon')
-    }
-
     let cursors = this.input.keyboard.createCursorKeys()
     let linkSpeed = 3
     if (cursors.left.isDown) {

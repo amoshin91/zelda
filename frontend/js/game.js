@@ -17,3 +17,4 @@ let score;
 
 
 const game = new Phaser.Game(config);
+let playerName = prompt("Please Enter your name: ")

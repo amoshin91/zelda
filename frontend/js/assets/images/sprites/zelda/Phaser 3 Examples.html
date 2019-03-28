@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)http://labs.phaser.io/edit.html?src=src%5Cgame%20objects%5Ctilemap%5Ccollision%5Ctile%20callbacks.js -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Phaser 3 Examples</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="http://labs.phaser.io/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" data-name="vs/editor/editor.main" href="./Phaser 3 Examples_files/editor.main.css"><link rel="stylesheet" href="./Phaser 3 Examples_files/bootstrap.min.css">
+        <script src="./Phaser 3 Examples_files/pouchdb-6.0.7.min.js"></script>
+        <script src="./Phaser 3 Examples_files/fileSaver.js"></script>
+        <script src="./Phaser 3 Examples_files/loadSource.js"></script>
+        <script src="./Phaser 3 Examples_files/getQueryString.js"></script>
+        <script src="./Phaser 3 Examples_files/TweenMax.min.js"></script> 
+        <script src="./Phaser 3 Examples_files/loader.js"></script>
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                background-color: #535353;
+                margin: 16px 0 0 0;
+                padding: 0;
+            }
+
+            #editor, #sandboxed {
+                margin-top: 16px;
+                width: 100%;
+                height: 90vh;
+                border: 1px solid black;
+            }
+        </style>
+    <script async="async" type="text/javascript" src="./Phaser 3 Examples_files/editor.main.js"></script><style type="text/css" media="screen"></style><script async="async" type="text/javascript" src="./Phaser 3 Examples_files/editor.main.nls.js"></script><style type="text/css" media="screen"></style><style type="text/css" media="screen" class="monaco-tokens-styles">
+.mtk1 { color: #000000; }
+.mtk2 { color: #FFFFFF; }
+.mtk3 { color: #808080; }
+.mtk4 { color: #FF0000; }
+.mtk5 { color: #0451A5; }
+.mtk6 { color: #0000FF; }
+.mtk7 { color: #09885A; }
+.mtk8 { color: #008000; }
+.mtk9 { color: #DD0000; }
+.mtk10 { color: #383838; }
+.mtk11 { color: #CD3131; }
+.mtk12 { color: #863B00; }
+.mtk13 { color: #AF00DB; }
+.mtk14 { color: #800000; }
+.mtk15 { color: #E00000; }
+.mtk16 { color: #3030C0; }
+.mtk17 { color: #666666; }
+.mtk18 { color: #778899; }
+.mtk19 { color: #FF00FF; }
+.mtk20 { color: #A31515; }
+.mtk21 { color: #4F76AC; }
+.mtk22 { color: #008080; }
+.mtk23 { color: #001188; }
+.mtk24 { color: #4864AA; }
+.mtki { font-style: italic; }
+.mtkb { font-weight: bold; }
+.mtku { text-decoration: underline; }</style><script async="async" type="text/javascript" src="./Phaser 3 Examples_files/mode.js"></script><script async="async" type="text/javascript" src="./Phaser 3 Examples_files/typescriptServices.js"></script></head>
+    <body data-__gyazo-extension-added-paste-support="true">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-dark bg-inverse">
+                    <a class="navbar-brand" href="http://labs.phaser.io/index.html">[ Home ]</a>
+                    <a class="navbar-brand" href="http://labs.phaser.io/edit.html?src=src%5Cgame%20objects%5Ctilemap%5Ccollision%5Ctile%20callbacks.js#">Phaser 3 Sandbox</a>
+                    <button class="btn btn-primary" type="submit" id="launch">Launch</button>
+                    <button class="btn btn-primary" type="submit" id="run">Run Code</button>
+                    <button class="btn btn-primary" type="submit" id="save">Save</button>
+                    <form class="form-inline float-xs-right">
+                        <input class="form-control" type="text" id="filename">
+                        <button class="btn" type="submit" id="download">Download</button>
+                    </form>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="editor" data-keybinding-context="1" data-mode-id="javascript"><div class="monaco-editor mac vs" style="width: 678px; height: 640px;"><div data-mprt="3" class="overflow-guard" style="width: 678px; height: 640px;"><div class="margin monaco-editor-background" role="presentation" aria-hidden="true" data-transform="translate3d(0px, -564px, 0px)" style="position: absolute; transform: translate3d(0px, -564px, 0px); top: 0px; height: 3358px; width: 46px;"><div class="glyph-margin" style="left: 0px; width: 0px; height: 3358px;"></div><div class="margin-view-zones" role="presentation" aria-hidden="true" style="position: absolute;"></div><div class="margin-view-overlays" role="presentation" aria-hidden="true" style="position: absolute; width: 46px; font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-weight: normal; font-size: 12px; line-height: 18px; height: 3358px;"><div linenumber="38" style="position:absolute;top:666px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">38</div></div><div linenumber="39" style="position:absolute;top:684px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">39</div></div><div linenumber="40" style="position:absolute;top:702px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">40</div></div><div linenumber="41" style="position:absolute;top:720px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">41</div></div><div linenumber="42" style="position:absolute;top:738px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">42</div></div><div linenumber="43" style="position:absolute;top:756px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">43</div></div><div linenumber="44" style="position:absolute;top:774px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">44</div></div><div linenumber="45" style="position:absolute;top:792px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">45</div></div><div linenumber="46" style="position:absolute;top:810px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">46</div></div><div linenumber="47" style="position:absolute;top:828px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">47</div></div><div linenumber="48" style="position:absolute;top:846px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">48</div></div><div linenumber="49" style="position:absolute;top:864px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">49</div></div><div linenumber="50" style="position:absolute;top:882px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">50</div></div><div linenumber="51" style="position:absolute;top:900px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">51</div></div><div linenumber="52" style="position:absolute;top:918px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">52</div></div><div linenumber="53" style="position:absolute;top:936px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">53</div></div><div linenumber="54" style="position:absolute;top:954px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">54</div></div><div linenumber="55" style="position:absolute;top:972px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">55</div></div><div linenumber="56" style="position:absolute;top:990px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">56</div></div><div linenumber="57" style="position:absolute;top:1008px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">57</div></div><div linenumber="58" style="position:absolute;top:1026px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">58</div></div><div linenumber="59" style="position:absolute;top:1044px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">59</div></div><div linenumber="60" style="position:absolute;top:1062px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">60</div></div><div linenumber="61" style="position:absolute;top:1080px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">61</div></div><div linenumber="62" style="position:absolute;top:1098px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">62</div></div><div linenumber="63" style="position:absolute;top:1116px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">63</div></div><div linenumber="64" style="position:absolute;top:1134px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">64</div></div><div linenumber="65" style="position:absolute;top:1152px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">65</div></div><div linenumber="66" style="position:absolute;top:1170px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">66</div></div><div linenumber="67" style="position:absolute;top:1188px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">67</div></div><div linenumber="37" style="position:absolute;top:648px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">37</div></div><div linenumber="36" style="position:absolute;top:630px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">36</div></div><div linenumber="35" style="position:absolute;top:612px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">35</div></div><div linenumber="34" style="position:absolute;top:594px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">34</div></div><div linenumber="33" style="position:absolute;top:576px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">33</div></div><div linenumber="32" style="position:absolute;top:558px;width:100%;height:18px;"><div class="line-numbers" style="left:0px;width:36px;">32</div></div></div></div><div class="monaco-scrollable-element editor-scrollable vs mac" role="presentation" data-mprt="5" style="position: absolute; overflow: hidden; left: 46px; width: 632px; height: 640px;"><div class="lines-content monaco-editor-background" data-transform="translate3d(0px, -564px, 0px)" style="position: absolute; overflow: hidden; width: 1e+06px; height: 1e+06px; transform: translate3d(0px, -564px, 0px); top: 0px; left: 0px;"><div class="view-overlays" role="presentation" aria-hidden="true" style="position: absolute; width: 753px; height: 0px;"><div linenumber="38" style="position:absolute;top:666px;width:100%;height:18px;"></div><div linenumber="39" style="position:absolute;top:684px;width:100%;height:18px;"></div><div linenumber="40" style="position:absolute;top:702px;width:100%;height:18px;"></div><div linenumber="41" style="position:absolute;top:720px;width:100%;height:18px;"></div><div linenumber="42" style="position:absolute;top:738px;width:100%;height:18px;"></div><div linenumber="43" style="position:absolute;top:756px;width:100%;height:18px;"></div><div linenumber="44" style="position:absolute;top:774px;width:100%;height:18px;"></div><div linenumber="45" style="position:absolute;top:792px;width:100%;height:18px;"></div><div linenumber="46" style="position:absolute;top:810px;width:100%;height:18px;"></div><div linenumber="47" style="position:absolute;top:828px;width:100%;height:18px;"></div><div linenumber="48" style="position:absolute;top:846px;width:100%;height:18px;"><div class="current-line" style="width:753px; height:18px;"></div><div class="cdr bracket-match" style="left:253px;width:7px;height:18px;"></div><div class="cdr bracket-match" style="left:296px;width:7px;height:18px;"></div></div><div linenumber="49" style="position:absolute;top:864px;width:100%;height:18px;"></div><div linenumber="50" style="position:absolute;top:882px;width:100%;height:18px;"></div><div linenumber="51" style="position:absolute;top:900px;width:100%;height:18px;"></div><div linenumber="52" style="position:absolute;top:918px;width:100%;height:18px;"></div><div linenumber="53" style="position:absolute;top:936px;width:100%;height:18px;"></div><div linenumber="54" style="position:absolute;top:954px;width:100%;height:18px;"></div><div linenumber="55" style="position:absolute;top:972px;width:100%;height:18px;"></div><div linenumber="56" style="position:absolute;top:990px;width:100%;height:18px;"></div><div linenumber="57" style="position:absolute;top:1008px;width:100%;height:18px;"></div><div linenumber="58" style="position:absolute;top:1026px;width:100%;height:18px;"></div><div linenumber="59" style="position:absolute;top:1044px;width:100%;height:18px;"></div><div linenumber="60" style="position:absolute;top:1062px;width:100%;height:18px;"></div><div linenumber="61" style="position:absolute;top:1080px;width:100%;height:18px;"></div><div linenumber="62" style="position:absolute;top:1098px;width:100%;height:18px;"></div><div linenumber="63" style="position:absolute;top:1116px;width:100%;height:18px;"></div><div linenumber="64" style="position:absolute;top:1134px;width:100%;height:18px;"></div><div linenumber="65" style="position:absolute;top:1152px;width:100%;height:18px;"></div><div linenumber="66" style="position:absolute;top:1170px;width:100%;height:18px;"></div><div linenumber="67" style="position:absolute;top:1188px;width:100%;height:18px;"></div><div linenumber="37" style="position:absolute;top:648px;width:100%;height:18px;"></div><div linenumber="36" style="position:absolute;top:630px;width:100%;height:18px;"></div><div linenumber="35" style="position:absolute;top:612px;width:100%;height:18px;"></div><div linenumber="34" style="position:absolute;top:594px;width:100%;height:18px;"></div><div linenumber="33" style="position:absolute;top:576px;width:100%;height:18px;"></div><div linenumber="32" style="position:absolute;top:558px;width:100%;height:18px;"></div></div><div class="view-rulers"></div><div class="view-zones" role="presentation" aria-hidden="true" style="position: absolute;"></div><div class="view-lines" role="presentation" aria-hidden="true" data-mprt="7" style="position: absolute; font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-weight: normal; font-size: 12px; line-height: 18px; width: 753px; height: 3358px;"><div linenumber="38" style="top:666px;height:18px;" class="view-line" last-scroll-time="1553793792182"><span><span class="mtk6">function</span><span class="mtk1">&nbsp;create&nbsp;()</span></span></div><div linenumber="39" style="top:684px;height:18px;" class="view-line" last-scroll-time="1553793792197"><span><span class="mtk1">{</span></span></div><div linenumber="40" style="top:702px;height:18px;" class="view-line" last-scroll-time="1553796006636"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;map&nbsp;=&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.make.tilemap({&nbsp;key:&nbsp;</span><span class="mtk20">'map'</span><span class="mtk1">&nbsp;});</span></span></div><div linenumber="41" style="top:720px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">var</span><span class="mtk1">&nbsp;groundTiles&nbsp;=&nbsp;map.addTilesetImage(</span><span class="mtk20">'ground_1x1'</span><span class="mtk1">);</span></span></div><div linenumber="42" style="top:738px;height:18px;" class="view-line" last-scroll-time="1553796006519"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">var</span><span class="mtk1">&nbsp;coinTiles&nbsp;=&nbsp;map.addTilesetImage(</span><span class="mtk20">'coin'</span><span class="mtk1">);</span></span></div><div linenumber="43" style="top:756px;height:18px;" class="view-line" last-scroll-time="1553795951388"><span><span>&nbsp;</span></span></div><div linenumber="44" style="top:774px;height:18px;" class="view-line" last-scroll-time="1553795953593"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;map.createDynamicLayer(</span><span class="mtk20">'Background&nbsp;Layer'</span><span class="mtk1">,&nbsp;groundTiles,&nbsp;</span><span class="mtk7">0</span><span class="mtk1">,&nbsp;</span><span class="mtk7">0</span><span class="mtk1">);</span></span></div><div linenumber="45" style="top:792px;height:18px;" class="view-line" last-scroll-time="1553795953046"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;groundLayer&nbsp;=&nbsp;map.createDynamicLayer(</span><span class="mtk20">'Ground&nbsp;Layer'</span><span class="mtk1">,&nbsp;groundTiles,&nbsp;</span><span class="mtk7">0</span><span class="mtk1">,&nbsp;</span><span class="mtk7">0</span><span class="mtk1">);</span></span></div><div linenumber="46" style="top:810px;height:18px;" class="view-line" last-scroll-time="1553795953625"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;coinLayer&nbsp;=&nbsp;map.createDynamicLayer(</span><span class="mtk20">'Coin&nbsp;Layer'</span><span class="mtk1">,&nbsp;coinTiles,&nbsp;</span><span class="mtk7">0</span><span class="mtk1">,&nbsp;</span><span class="mtk7">0</span><span class="mtk1">);</span></span></div><div linenumber="47" style="top:828px;height:18px;" class="view-line" last-scroll-time="1553795954863"><span><span>&nbsp;</span></span></div><div linenumber="48" style="top:846px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;groundLayer.setCollisionBetween(</span><span class="mtk7">1</span><span class="mtk1">,&nbsp;</span><span class="mtk7">25</span><span class="mtk1">);</span></span></div><div linenumber="49" style="top:864px;height:18px;" class="view-line" last-scroll-time="1553796059766"><span><span>&nbsp;</span></span></div><div linenumber="50" style="top:882px;height:18px;" class="view-line" last-scroll-time="1553796059663"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">//&nbsp;This&nbsp;will&nbsp;set&nbsp;Tile&nbsp;ID&nbsp;26&nbsp;(the&nbsp;coin&nbsp;tile)&nbsp;to&nbsp;cal</span><span class="mtk8">l&nbsp;the&nbsp;function&nbsp;"hitCoin"&nbsp;when&nbsp;collided&nbsp;with</span></span></div><div linenumber="51" style="top:900px;height:18px;" class="view-line" last-scroll-time="1553796059630"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;coinLayer.setTileIndexCallback(</span><span class="mtk7">26</span><span class="mtk1">,&nbsp;hitCoin,&nbsp;</span><span class="mtk6">this</span><span class="mtk1">);</span></span></div><div linenumber="52" style="top:918px;height:18px;" class="view-line" last-scroll-time="1553796059613"><span><span>&nbsp;</span></span></div><div linenumber="53" style="top:936px;height:18px;" class="view-line" last-scroll-time="1553795956234"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">//&nbsp;This&nbsp;will&nbsp;set&nbsp;the&nbsp;map&nbsp;location&nbsp;(2,&nbsp;0)&nbsp;to&nbsp;call&nbsp;t</span><span class="mtk8">he&nbsp;function&nbsp;"hitSecretDoor"&nbsp;Un-comment&nbsp;this&nbsp;to</span></span></div><div linenumber="54" style="top:954px;height:18px;" class="view-line" last-scroll-time="1553795956256"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">//&nbsp;be&nbsp;jump&nbsp;through&nbsp;the&nbsp;ceiling&nbsp;above&nbsp;where&nbsp;the&nbsp;pla</span><span class="mtk8">yer&nbsp;spawns.&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;create&nbsp;a</span></span></div><div linenumber="55" style="top:972px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">//&nbsp;secret&nbsp;area.</span></span></div><div linenumber="56" style="top:990px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;groundLayer.setTileLocationCallback(</span><span class="mtk7">2</span><span class="mtk1">,&nbsp;</span><span class="mtk7">0</span><span class="mtk1">,&nbsp;</span><span class="mtk7">1</span><span class="mtk1">,&nbsp;</span><span class="mtk7">1</span><span class="mtk1">,&nbsp;hitSecretDoor,&nbsp;</span><span class="mtk6">this</span><span class="mtk1">);</span></span></div><div linenumber="57" style="top:1008px;height:18px;" class="view-line"><span><span>&nbsp;</span></span></div><div linenumber="58" style="top:1026px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;=&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.physics.add.sprite(</span><span class="mtk7">80</span><span class="mtk1">,&nbsp;</span><span class="mtk7">70</span><span class="mtk1">,&nbsp;</span><span class="mtk20">'player'</span><span class="mtk1">)</span></span></div><div linenumber="59" style="top:1044px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.setBounce(</span><span class="mtk7">0.1</span><span class="mtk1">);</span></span></div><div linenumber="60" style="top:1062px;height:18px;" class="view-line"><span><span>&nbsp;</span></span></div><div linenumber="61" style="top:1080px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">//&nbsp;We&nbsp;want&nbsp;the&nbsp;player&nbsp;to&nbsp;physically&nbsp;collide&nbsp;with&nbsp;t</span><span class="mtk8">he&nbsp;ground,&nbsp;but&nbsp;the&nbsp;coin&nbsp;layer&nbsp;should&nbsp;only</span></span></div><div linenumber="62" style="top:1098px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk8">//&nbsp;trigger&nbsp;an&nbsp;overlap&nbsp;so&nbsp;that&nbsp;collection&nbsp;a&nbsp;coin&nbsp;do</span><span class="mtk8">esn'td&nbsp;kill&nbsp;player&nbsp;movement.</span></span></div><div linenumber="63" style="top:1116px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.physics.add.collider(player,&nbsp;groundLayer);</span></span></div><div linenumber="64" style="top:1134px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.physics.add.overlap(player,&nbsp;coinLayer);</span></span></div><div linenumber="65" style="top:1152px;height:18px;" class="view-line"><span><span>&nbsp;</span></span></div><div linenumber="66" style="top:1170px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.cameras.main.setBounds(</span><span class="mtk7">0</span><span class="mtk1">,&nbsp;</span><span class="mtk7">0</span><span class="mtk1">,&nbsp;map.widthInPixels,&nbsp;map.heightInPixels);</span></span></div><div linenumber="67" style="top:1188px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.cameras.main.startFollow(player);</span></span></div><div linenumber="37" style="top:648px;height:18px;" class="view-line"><span><span>&nbsp;</span></span></div><div linenumber="36" style="top:630px;height:18px;" class="view-line"><span><span class="mtk1">}</span></span></div><div linenumber="35" style="top:612px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.load.image(</span><span class="mtk20">'player'</span><span class="mtk1">,&nbsp;</span><span class="mtk20">'assets/sprites/phaser-dude.png'</span><span class="mtk1">);</span></span></div><div linenumber="34" style="top:594px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.load.tilemapTiledJSON(</span><span class="mtk20">'map'</span><span class="mtk1">,&nbsp;</span><span class="mtk20">'assets/tilemaps/maps/tile-collision-test.json'</span><span class="mtk1">);</span></span></div><div linenumber="33" style="top:576px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.load.spritesheet(</span><span class="mtk20">'coin'</span><span class="mtk1">,&nbsp;</span><span class="mtk20">'assets/sprites/coin.png'</span><span class="mtk1">,&nbsp;{&nbsp;frameWidth:&nbsp;</span><span class="mtk7">32</span><span class="mtk1">,&nbsp;frameHeight:&nbsp;</span><span class="mtk7">32</span><span class="mtk1">&nbsp;});</span></span></div><div linenumber="32" style="top:558px;height:18px;" class="view-line"><span><span class="mtk1">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk6">this</span><span class="mtk1">.load.image(</span><span class="mtk20">'ground_1x1'</span><span class="mtk1">,&nbsp;</span><span class="mtk20">'assets/tilemaps/tiles/ground_1x1.png'</span><span class="mtk1">);</span></span></div></div><div data-mprt="1" class="contentWidgets" style="position: absolute; top: 0px;"></div><div class="cursors-layer cursor-line-style cursor-solid"><div class="cursor" role="presentation" aria-hidden="true" linenumber="48" column="42" style="height: 18px; top: 846px; left: 296px; font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-weight: normal; font-size: 12px; line-height: 18px; display: block; visibility: hidden; width: 2px;"></div></div></div><div class="invisible scrollbar horizontal fade" style="position: absolute; transform: translate3d(0px, 0px, 0px); width: 618px; height: 10px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; width: 518px; transform: translate3d(0px, 0px, 0px);"></div></div><canvas class="decorationsOverviewRuler" width="14" height="640" data-transform="translate3d(0px, 0px, 0px)" style="position: absolute; top: 0px; right: 0px; width: 14px; height: 640px; transform: translate3d(0px, 0px, 0px);"></canvas><div class="invisible scrollbar vertical fade" style="position: absolute; transform: translate3d(0px, 0px, 0px); width: 14px; height: 640px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 14px; height: 121px; transform: translate3d(0px, 107px, 0px);"></div></div></div><div style="width: 678px;" class="scroll-decoration"></div><div data-mprt="4" class="overlayWidgets" style="width: 678px;"><div class="editor-widget find-widget" aria-hidden="false" widgetid="editor.contrib.findWidget" style="position: absolute;"><div title="Toggle Replace mode" tabindex="-1" class="button toggle left collapse disabled" role="button" aria-label="Toggle Replace mode" aria-expanded="false" aria-disabled="true"></div><div class="find-part"><div class="monaco-findInput disabled" style="width: 221px;"><div class="monaco-inputbox idle"><div class="wrapper"><input class="input" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" wrap="off" aria-label="Find" placeholder="Find" title="Find" disabled="" style="width: 155px;"></div></div><div class="controls"><div title="Match Case (⌥⌘C)" class="custom-checkbox case-sensitive unchecked" role="checkbox" aria-checked="false" aria-label="Match Case (⌥⌘C)" aria-disabled="true"></div><div title="Match Whole Word (⌥⌘W)" class="custom-checkbox whole-word unchecked" role="checkbox" aria-checked="false" aria-label="Match Whole Word (⌥⌘W)" aria-disabled="true"></div><div title="Use Regular Expression (⌥⌘R)" class="custom-checkbox regex unchecked" role="checkbox" aria-checked="false" aria-label="Use Regular Expression (⌥⌘R)" aria-disabled="true"></div></div></div><div class="matchesCount" title="" style="min-width: 69px;">No Results</div><div title="Previous match (⇧⌘G)" tabindex="-1" class="button previous disabled" role="button" aria-label="Previous match (⇧⌘G)" aria-disabled="true"></div><div title="Next match (⌘G)" tabindex="-1" class="button next disabled" role="button" aria-label="Next match (⌘G)" aria-disabled="true"></div><div class="monaco-checkbox" title="Find in selection"><input type="checkbox" class="checkbox" id="checkbox-0" disabled=""><label class="label" for="checkbox-0"></label></div><div title="Close (Escape)" tabindex="-1" class="button close-fw disabled" role="button" aria-label="Close (Escape)" aria-disabled="true"></div></div><div class="replace-part"><div class="replace-input" style="width: 221px;"><div class="monaco-inputbox idle"><div class="wrapper"><input class="input" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" wrap="off" aria-label="Replace" placeholder="Replace" title="Replace" disabled=""></div></div></div><div title="Replace (⇧⌘1)" tabindex="-1" class="button replace disabled" role="button" aria-label="Replace (⇧⌘1)" aria-disabled="true"></div><div title="Replace All (⌥⌘Enter)" tabindex="-1" class="button replace-all disabled" role="button" aria-label="Replace All (⌥⌘Enter)" aria-disabled="true"></div></div></div><div class="monaco-editor-hover hidden" aria-hidden="true" role="presentation" widgetid="editor.contrib.modesGlyphHoverWidget" style="position: absolute;"></div><div class="lightbulb-glyph hidden" title="Show Fixes (⌘.)" widgetid="__lightBulbWidget" style="width: 21px; height: 20px; position: absolute;"></div></div><textarea data-mprt="6" class="inputarea" wrap="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Editor content" role="textbox" aria-multiline="true" aria-haspopup="false" aria-autocomplete="both" style="top: 0px; left: 0px; font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-weight: normal; font-size: 12px; line-height: 18px;"></textarea><div class="monaco-editor-background line-numbers textAreaCover" style="position: absolute; width: 1px; height: 1px; top: 0px; left: 0px;"></div></div><div data-mprt="2" class="overflowingContentWidgets"><div class="monaco-editor-hover hidden" tabindex="0" widgetid="editor.contrib.modesContentHoverWidget" style="position: absolute; max-width: 1420px; visibility: hidden; top: 256px; left: 162px;"><div class="monaco-scrollable-element  mac" role="presentation" style="position: relative; overflow: hidden;"><div class="monaco-editor-hover-content" style="overflow: hidden; font-size: 12px; line-height: 18px; max-height: 250px;"><div class="hover-row"><div><p>any</p></div></div></div><div class="invisible scrollbar horizontal" style="position: absolute; width: 20px; height: 10px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; width: 20px;"></div></div><div class="invisible scrollbar vertical" style="position: absolute; width: 10px; height: 26px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px; height: 26px;"></div></div><div class="shadow"></div><div class="shadow"></div><div class="shadow top-left-corner"></div></div></div><div class="editor-widget parameter-hints-widget" widgetid="editor.widget.parameterHintsWidget" style="font-size: 12px; max-height: 250px; position: absolute; max-width: 1420px; visibility: hidden;"><div class="wrapper"><div class="buttons"><div class="button previous"></div><div class="button next"></div></div><div class="overloads"></div><div class="monaco-scrollable-element  mac" role="presentation" style="position: relative; overflow: hidden;"><div class="body" style="overflow: hidden;"><div class="signature"></div><div class="docs"></div></div><div class="invisible scrollbar horizontal" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px;"></div></div><div class="invisible scrollbar vertical" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px;"></div></div><div class="shadow"></div><div class="shadow"></div><div class="shadow top-left-corner"></div></div></div></div><div class="monaco-editor rename-box" widgetid="__renameInputWidget" style="height: 18px; position: absolute; max-width: 1420px; visibility: hidden;"><input class="rename-input" type="text" aria-label="Rename input. Type new name and press Enter to commit." style="font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-weight: normal; font-size: 12px;"></div><div class="editor-widget suggest-widget" widgetid="editor.widget.suggestWidget" style="position: absolute; max-width: 1420px; visibility: hidden; line-height: 18px; height: 18px; top: 300px; left: 393px;"><div class="message" style="display: none;"></div><div class="tree"><div class="monaco-list" role="tree" tabindex="0"><div class="monaco-scrollable-element  mac" role="presentation" style="position: relative; overflow: hidden;"><div class="monaco-list-rows" style="overflow: hidden; height: 0px; transform: translate3d(0px, 0px, 0px);"></div><div class="invisible scrollbar horizontal" style="position: absolute; width: 0px; height: 0px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; width: 0px;"></div></div><div class="invisible scrollbar vertical" style="position: absolute; width: 10px; height: 18px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px; height: 18px;"></div></div></div></div></div><div class="details" style="font-size: 12px; display: none;"><div class="header"><span class="title" style="font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace;"><span class="monaco-highlighted-label"></span></span><span class="go-back" title="Go back" style="height: 18px; width: 18px;"></span></div><div class="monaco-scrollable-element  mac" role="presentation" style="position: relative; overflow: hidden;"><div class="body" style="overflow: hidden;"><p class="type" style="font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace;"></p><p class="docs"></p></div><div class="invisible scrollbar horizontal" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px;"></div></div><div class="invisible scrollbar vertical" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px;"></div></div><div class="shadow"></div><div class="shadow"></div><div class="shadow top-left-corner"></div></div></div></div></div><div class="context-view builder-hidden" aria-hidden="true"></div></div></div>
+            </div>
+            <div class="col-md-6">
+                <iframe id="sandboxed" src="./Phaser 3 Examples_files/frame.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+    function loadEditor (source, filename)
+    {
+        require.config({ paths: { 'vs': './js/vs' }});
+
+        require(['vs/editor/editor.main'], function() {
+
+            editor = monaco.editor.create(document.getElementById('editor'), {
+                value: source,
+                language: 'javascript'
+            });
+
+            window.onresize = function () {
+                editor.layout();
+            };
+
+            var windowObjectReference;
+
+            var run = document.getElementById('run');
+            var save = document.getElementById('save');
+            var frame = document.getElementById('sandboxed');
+            var download = document.getElementById('download');
+
+            if (filename)
+            {
+                document.getElementById('filename').value = filename;
+            }
+
+            launch.onclick = function ()
+            {
+                var filename = getQueryString('src');
+
+                var strWindowFeatures = 'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes';
+
+                windowObjectReference = window.open('view.html?src=' + filename + '&v=' + phaserVersion, 'Phaser3Viewer', strWindowFeatures);
+            };
+
+            run.onclick = function ()
+            {
+                frame.contentWindow.postMessage('reload', '*');
+            };
+
+            download.onclick = function ()
+            {
+                var name = document.getElementById('filename');
+
+                var src = editor.model.getLinesContent().join('\n');
+
+                var blob = new Blob([src], { type: 'text/plain;charset=utf-8' });
+
+                saveAs(blob, name.value);
+            };
+
+            save.onclick = function ()
+            {
+                var example = {
+                    _id: filename,
+                    code: editor.model.getLinesContent(),
+                    version: version++
+                };
+
+                if (entry)
+                {
+                    //  update instead of insert
+                    example._rev = entry._rev;
+                }
+
+                db.put(example, function callback(err, result) {
+                    
+                    if (!err)
+                    {
+                        console.log(filename, 'saved to db - version', example.version);
+
+                        console.log(result.rev);
+
+                        entry._rev = result.rev;
+                    }
+                    else
+                    {
+                        console.log(filename, 'failed to save:', err);
+                    }
+
+                });
+
+            };
+
+            window.addEventListener('message', function (event) {
+
+                // console.log('editor received message');
+                // console.log(event);
+
+                var mainWindow = event.source;
+
+                if (event.data === 'getCode')
+                {
+                    var src = editor.model.getLinesContent();
+
+                    frame.contentWindow.postMessage(src.join('\n'), '*');
+                }
+
+            });
+
+        });
+    }
+
+    var db;
+    var editor;
+    var entry;
+    var version = 1;
+    var phaserVersion;
+
+    window.onload = function ()
+    {
+        phaserVersion = getQueryString('v', '3.16.1');
+
+        db = new PouchDB('phaser3-examples');
+
+        if (getQueryString('src'))
+        {
+            var filename = getQueryString('src');
+
+            db.get(filename, function(err, doc) {
+
+                if (err)
+                {
+                    console.log(filename, 'loaded from filesystem');
+
+                    loadSource(filename, function (source) {
+
+                        loadEditor(source, filename);
+
+                    });
+                }
+                else
+                {
+                    console.log(filename, 'loaded from db - version', doc.version);
+
+                    entry = doc;
+                    version = doc.version;
+
+                    loadEditor(doc.code.join('\n'), filename);
+                }
+
+            });
+        }
+        else
+        {
+            var source = [
+                'var config = { width: 800, height: 600 };',
+                'var game = new Phaser.Game(config);'
+            ].join('\n');
+
+            loadEditor(source, 'example.js');
+        }
+
+    };
+
+    </script>
+
+    
+
+</body></html>

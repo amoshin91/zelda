@@ -15,6 +15,15 @@ class Dungeon extends Phaser.Scene {
     this.load.tilemapTiledJSON('dungeon', 'js/assets/maps/dungeonnew.json')
     this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', { frameWidth: 30, frameHeight: 36 })
     this.load.spritesheet('gano', 'js/assets/images/sprites/zelda/ganondorf-move-sheet.png', { frameWidth: 42, frameHeight: 42 })
+
+////////////////////////////////////////////////////////////////////
+
+    this.load.image('L001', 'js/assets/images/sprites/zelda/L001.png')
+    this.load.image('L002', 'js/assets/images/sprites/zelda/L002.png')
+    this.load.image('L003', 'js/assets/images/sprites/zelda/L003.png')
+
+
+////////////////////////////////////////////////////////////////////
   }
 
   create () {
@@ -22,13 +31,22 @@ class Dungeon extends Phaser.Scene {
     const text = this.add.text(100, 100, 'Score:' + score)
     const map = this.make.tilemap({ key: 'dungeon' })
 
-    const objectsTileSet = map.addTilesetImage('terrain', 'objects')
     const floorTileset = map.addTilesetImage('tileset', 'floor')
     const wallsTileset = map.addTilesetImage('walls', 'walls')
+    const objectsTileSet = map.addTilesetImage('terrain', 'objects')
 
     const backgroundLayer = map.createStaticLayer('Walls', wallsTileset, 0, 0)
     const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
     const objectsLayer = map.createStaticLayer('Objects', objectsTileSet, 0, 0)
+
+    // this.physics.add.collider(this.player, this.wall)
+////////////////////////////////////////////////////////////////////
+
+    this.l001 = this.physics.add.image(280, 200, 'L001')
+    this.l002 = this.physics.add.image(280, 500, 'L002')
+    this.l003 = this.physics.add.image(280, 200, 'L003')
+
+////////////////////////////////////////////////////////////////////
 
     const spawnPoint = map.findObject('Obj1', obj => obj.name === 'SpawnPoint')
     const enemySpawnPoint = map.findObject('Obj2', obj => obj.name === 'EnemySpawnPoint')
@@ -119,12 +137,40 @@ class Dungeon extends Phaser.Scene {
 
     this.physics.add.collider(this.player, this.enemy, this.collisionHandler, null, this)
     this.physics.add.collider(this.player, this.enemy, backgroundLayer)
+
   }
 
+
+////////////////////////////////////////////////////////////////////
+  stopMoving () {
+
+    if (this.player.x === 290) {
+      this.player.x += 1
+    } else if (this.player.x === 299) {
+      this.player.x += 1
+    } else if (this.player.x === 298) {
+      this.player.x += 1
+    } else if (this.player.x === 297) {
+      this.player.x += 1
+    } else if (this.player.x === 296) {
+      this.player.x += 1
+    }
+    // debugger
+  }
+
+////////////////////////////////////////////////////////////////////
 
   update () {
     let cursors = this.input.keyboard.createCursorKeys()
     let linkSpeed = 3
+
+////////////////////////////////////////////////////////////////////
+
+    this.physics.add.collider(this.player, this.l001, this.stopMoving, null, this)
+    this.physics.add.collider(this.player, this.l002, this.stopMoving, null, this)
+    this.physics.add.collider(this.player, this.l003, this.stopMoving, null, this)
+
+////////////////////////////////////////////////////////////////////
 
     if (cursors.left.isDown) {
       this.player.x -= linkSpeed
@@ -168,4 +214,7 @@ class Dungeon extends Phaser.Scene {
       console.log('Gameover')
     }
   }
+
+
+
 }

@@ -8,6 +8,8 @@ class HyruleScene extends Phaser.Scene {
     this.load.image('ground', 'js/assets/maps/32x32_map_tile v3.1 [MARGINLESS].png')
     this.load.tilemapTiledJSON('hyrule', 'js/assets/maps/hyrule.json')
     this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', { frameWidth: 30, frameHeight: 36 })
+
+    this.load.image('wall', 'js/assets/images/sprites/zelda/invisible.png')
   }
 
   create () {
@@ -22,6 +24,8 @@ class HyruleScene extends Phaser.Scene {
     let hyrule = this.make.tilemap({ key: 'hyrule' })
     const hyruleTileSet = hyrule.addTilesetImage('32x32_map_tile v3.1 [MARGINLESS]', 'ground')
     const terrainTileSet = hyrule.addTilesetImage('terrain', 'terrain')
+
+this.wall = this.physics.add.image(300, 400, 'wall')
 
 
     const ground = hyrule.createStaticLayer('InnerGrass', terrainTileSet, 0, 0)
@@ -82,6 +86,8 @@ class HyruleScene extends Phaser.Scene {
 
     let entranceToDungeon = hyrule.findObject('EntranceObj', obj => obj.name === 'Enter')
     this.physics.add.collider(player, entranceTileset)
+
+    this.physics.add.collider(player, this.wall, this.stopMoving, null, this)
 
   }
 
@@ -189,6 +195,11 @@ class HyruleScene extends Phaser.Scene {
 
     };
 
+  }
+
+  stopMoving () {
+    console.log('hi')
+    this.player.body.velocity === 0
   }
 
 }

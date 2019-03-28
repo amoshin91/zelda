@@ -9,7 +9,8 @@ class Dungeon extends Phaser.Scene {
     this.load.image('rupee', 'js/assets/images/sprites/zelda/rupee-single.png')
     this.load.image('heart', 'js/assets/images/sprites/zelda/PixelArt.png')
     this.load.image('walls', 'js/assets/images/walls.png')
-    this.load.image('lava', 'js/assets/images/terrain.png')
+    // this.load.image('lava', 'js/assets/images/terrain.png')
+    this.load.image('objects', 'js/assets/images/terrain.png')
     this.load.image('floor', 'js/assets/images/tileset.png')
     this.load.tilemapTiledJSON('dungeon', 'js/assets/maps/dungeonnew.json')
     this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', { frameWidth: 30, frameHeight: 36 })
@@ -20,10 +21,15 @@ class Dungeon extends Phaser.Scene {
     let score = 0
     const text = this.add.text(100, 100, 'Score:' + score)
     const map = this.make.tilemap({ key: 'dungeon' })
+
+    const objectsTileSet = map.addTilesetImage('terrain', 'objects')
     const floorTileset = map.addTilesetImage('tileset', 'floor')
     const wallsTileset = map.addTilesetImage('walls', 'walls')
+
     const backgroundLayer = map.createStaticLayer('Walls', wallsTileset, 0, 0)
     const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
+    const objectsLayer = map.createStaticLayer('Objects', objectsTileSet, 0, 0)
+
     const spawnPoint = map.findObject('Obj1', obj => obj.name === 'SpawnPoint')
     const enemySpawnPoint = map.findObject('Obj2', obj => obj.name === 'EnemySpawnPoint')
     this.player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')

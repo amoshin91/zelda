@@ -11,7 +11,7 @@ class GameOverScene extends Phaser.Scene {
   create() {
     this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.68, 'background')
     this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.39, 'gameOver')
-    let menuBtn = this.add.image(this.game.renderer.width / 2.05, this.game.renderer.height * 0.70, 'menuBtn')
+    let menuBtn = this.add.image(this.game.renderer.width / 2.05, this.game.renderer.height * 0.75, 'menuBtn')
 
     menuBtn.setInteractive();
     menuBtn.on("pointerover", ()=> {

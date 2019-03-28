@@ -25,9 +25,11 @@ class HyruleScene extends Phaser.Scene {
 
     
     const ground = hyrule.createStaticLayer('InnerGrass', terrainTileSet, 0, 0)
-    const outerGrass = hyrule.createStaticLayer('OuterGrass', terrainTileSet, 0, 0)
     const waterTiles = hyrule.createStaticLayer('Water', terrainTileSet, 0, 0)
+    const trees = hyrule.createStaticLayer('Trees', terrainTileSet, 0, 0)
     const mountainsTileSet = hyrule.createStaticLayer('Mountains', terrainTileSet, 0, 0)
+    const upperMountainsTileSet = hyrule.createStaticLayer('UpperMountain', terrainTileSet, 0, 0)
+    const outerGrass = hyrule.createStaticLayer('OuterGrass', terrainTileSet, 0, 0)
     const entranceTileset = hyrule.createStaticLayer('Entrance', terrainTileSet, 0, 0)
 
     entranceTileset.setCollisionByProperty({ collides: true })

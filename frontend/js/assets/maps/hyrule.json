@@ -100,7 +100,7 @@
                 {
                  "height":0,
                  "id":1,
-                 "name":"",
+                 "name":"Enter",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -138,11 +138,7 @@
          "x":0,
          "y":0
         }],
-<<<<<<< HEAD
- "nextlayerid":10,
-=======
  "nextlayerid":8,
->>>>>>> cristian
  "nextobjectid":7,
  "orientation":"orthogonal",
  "renderorder":"right-down",

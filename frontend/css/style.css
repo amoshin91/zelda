@@ -3,6 +3,11 @@ body {
    padding: 0;
    background: url('../js/assets/images/web/brick_wall.jpg') repeat;
    overflow: hidden;
+cursor: url('../js/assets/images/web/cursor2.ico'), default;
+}
+
+.custom {
+
 }
 
 canvas {

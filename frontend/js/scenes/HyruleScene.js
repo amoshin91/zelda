@@ -86,9 +86,89 @@ class HyruleScene extends Phaser.Scene {
   }
 
   update () {
-    if (player.x === 1072 && player.y === 300) {
+
+    // function range(start, end) {
+    //     var ans = [];
+    //     for (let i = start; i <= end; i++) {
+    //         ans.push(i);
+    //     }
+    //     return ans;
+    // }
+    //
+    // const playerXNumber = range(1070.00, 1075.00)
+    // // const playerYNumber = range(302, 310).toFixed(14);
+    //
+    // if (player.x === playerXNumber) {
+    //   console.log('hi')
+    // }
+
+
+    if (player.x === 1069.36 && player.y === 315.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1072.36 && player.y === 315.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1075.36 && player.y === 315.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1066.36 && player.y === 315.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1069.36 && player.y === 312.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1072.36 && player.y === 312.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1066.36 && player.y === 312.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1075.36 && player.y === 312.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1069.36 && player.y === 309.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1072.36 && player.y === 309.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1066.36 && player.y === 309.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1075.36 && player.y === 309.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1069.36 && player.y === 306.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1072.36 && player.y === 306.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1066.36 && player.y === 306.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1075.36 && player.y === 306.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1069.36 && player.y === 303.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1072.36 && player.y === 303.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1066.36 && player.y === 303.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1075.36 && player.y === 303.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1069.36 && player.y === 300.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1072.36 && player.y === 300.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1066.36 && player.y === 300.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1075.36 && player.y === 300.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1069.36 && player.y === 297.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1072.36 && player.y === 297.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1066.36 && player.y === 297.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1075.36 && player.y === 297.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1069.36 && player.y === 294.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1072.36 && player.y === 294.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1066.36 && player.y === 294.95000000000005) {
+      this.scene.start('Dungeon')
+    } else if (player.x === 1075.36 && player.y === 294.95000000000005) {
       this.scene.start('Dungeon')
     }
+
 
     let cursors = this.input.keyboard.createCursorKeys()
     let linkSpeed = 3

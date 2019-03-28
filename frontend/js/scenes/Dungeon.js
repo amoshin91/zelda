@@ -109,7 +109,7 @@ class Dungeon extends Phaser.Scene {
       frameRate: 10,
       repeat: -1
     })
-  
+
     // this.player.setCollideWorldBounds(true);
 
     this.physics.add.collider(this.player, this.enemy, this.collisionHandler, null, this)
@@ -120,7 +120,7 @@ class Dungeon extends Phaser.Scene {
   update () {
     let cursors = this.input.keyboard.createCursorKeys()
     let linkSpeed = 3
-    
+
     if (cursors.left.isDown) {
       this.player.x -= linkSpeed
       this.player.anims.play('left', true)
@@ -153,11 +153,6 @@ class Dungeon extends Phaser.Scene {
 
 
   collisionHandler () {
-<<<<<<< HEAD
-    this.player.health -= 1
-    console.log("you've been hit!!")
-    // this.scene.start('GameOverScene')
-=======
     if (!this.player.invincible) {
       this.player.health = this.player.health - 0.5
       console.log(this.player.health)
@@ -167,6 +162,5 @@ class Dungeon extends Phaser.Scene {
       this.scene.start('GameOverScene')
       console.log('Gameover')
     }
->>>>>>> cristian
   }
 }

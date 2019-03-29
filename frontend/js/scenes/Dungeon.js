@@ -32,16 +32,26 @@ class Dungeon extends Phaser.Scene {
 
   create () {
     let score = 0
+<<<<<<< HEAD
     // const text = this.add.text(100, 100, 'Score:' + score)
     const map = this.make.tilemap({ key: 'dungeon' })
 
     const floorTileset = map.addTilesetImage('tileset', 'floor')
     const wallsTileset = map.addTilesetImage('walls', 'walls')
     const objectsTileSet = map.addTilesetImage('terrain', 'objects')
+=======
+    this.add.text(100, 100, 'Score:' + score)
+    const map = this.make.tilemap({ key: 'dungeon' })
+    const objectsTileSet = map.addTilesetImage('terrain', 'objects')
+    const floorTileset = map.addTilesetImage('tileset', 'floor')
+    const wallsTileset = map.addTilesetImage('walls', 'walls')
+    // debugger
+>>>>>>> cristian
 
     const backgroundLayer = map.createStaticLayer('Walls', wallsTileset, 0, 0)
     const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
     const objectsLayer = map.createStaticLayer('Objects', objectsTileSet, 0, 0)
+<<<<<<< HEAD
 
     let music = this.sound.add('dungeonmusic')
 
@@ -56,14 +66,20 @@ class Dungeon extends Phaser.Scene {
 
 ////////////////////////////////////////////////////////////////////
 
+=======
+    
+>>>>>>> cristian
     const spawnPoint = map.findObject('Obj1', obj => obj.name === 'SpawnPoint')
     const enemySpawnPoint = map.findObject('Obj2', obj => obj.name === 'EnemySpawnPoint')
     player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
-    this.enemy = this.physics.add.sprite(enemySpawnPoint.x, enemySpawnPoint.y, 300, 200, 'gano')
     player.health = 8
-    backgroundLayer.setCollisionBetween(1, 50);
-    this.physics.add.collider(player, backgroundLayer)
+    this.enemy = this.physics.add.sprite(enemySpawnPoint.x, enemySpawnPoint.y, 300, 200, 'gano')
+    this.enemy.health = 10
+
+    this.physics.add.sprite(745, 597, 'rupee')
+    backgroundLayer.setCollisionBetween(1, 39)
     backgroundLayer.setCollisionByProperty({ collides: true })
+    // this.physics.add.collider(player, backgroundLayer, )
     const camera = this.cameras.main
     camera.startFollow(player)
     camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels)
@@ -144,7 +160,7 @@ class Dungeon extends Phaser.Scene {
     // this.player.setCollideWorldBounds(true);
 
     this.physics.add.collider(player, this.enemy, this.collisionHandler, null, this)
-    this.physics.add.collider(player, this.enemy, backgroundLayer)
+    this.physics.add.collider(player, this.enemy, backgroundLayer, this.something, null, this)
   }
 
 
@@ -213,7 +229,11 @@ class Dungeon extends Phaser.Scene {
   collisionHandler () {
     if (!player.invincible) {
       player.health = player.health - 0.5
+<<<<<<< HEAD
       // console.log(player.health)
+=======
+      console.log(player.health)
+>>>>>>> cristian
       console.log("you've been hit!!")
     }
     if (player.health <= 0) {
@@ -222,6 +242,16 @@ class Dungeon extends Phaser.Scene {
     }
   }
 
+<<<<<<< HEAD
 
 
+=======
+  timeScore () {
+    let now = Date.now()
+    if (timer > now) {
+      let score_factor = (now - startTime) / timerLength
+      score = score_factor
+    }
+  }
+>>>>>>> cristian
 }

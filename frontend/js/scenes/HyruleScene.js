@@ -44,7 +44,11 @@ class HyruleScene extends Phaser.Scene {
     const spawnPoint = hyrule.findObject('Object Layer 2', obj => obj.name === 'Spawn')
     player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link').setDepth(0)
     // entranceTileset.setCollision([683])
+<<<<<<< HEAD
     // waterTiles.setTileLocationCallback([770, 688, 750, 793, 687, 771, 772], () => {
+=======
+    // waterTiles.setTileLocationCallback([1,1], () => {
+>>>>>>> cristian
     //   console.log('water')
     // })
     this.physics.add.collider(player, entranceTileset)

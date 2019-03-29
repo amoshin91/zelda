@@ -43,7 +43,7 @@ class Dungeon extends Phaser.Scene {
     const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
     const objectsLayer = map.createStaticLayer('Objects', objectsTileSet, 0, 0)
 
-    let music = this.sound.add('hyrulemusic')
+    let music = this.sound.add('dungeonmusic')
 
     music.play()
 
@@ -206,7 +206,7 @@ class Dungeon extends Phaser.Scene {
     } else {
       this.enemy.anims.play('ganStand', true)
     }
-    this.physics.moveToObject(this.enemy, player, 85)
+    this.physics.moveToObject(this.enemy, player, 60)
   }
 
 

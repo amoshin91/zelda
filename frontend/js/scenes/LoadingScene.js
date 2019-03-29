@@ -8,7 +8,7 @@ class LoadingScene extends Phaser.Scene {
     this.load.image('menu', 'js/assets/images/Scenes/zeldaLogo.png')
     this.load.image('background', 'js/assets/images/Scenes/background.gif')
 
-    
+
 
     console.log('hello')
     let loadingBar = this.add.graphics({

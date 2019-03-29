@@ -15,6 +15,7 @@ class GameOverScene extends Phaser.Scene {
 
     menuBtn.setInteractive();
     menuBtn.on("pointerover", ()=> {
+      music.pause()
       this.scene.start('MenuScene')
     })
   }

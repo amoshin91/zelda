@@ -22,20 +22,19 @@ let startTime = Date.now()
 let weapon
 let fireButton
 const game = new Phaser.Game(config);
-// const postReq = (name) => {
+alert('Welcome to the Legend of Zelda å ')
+let name = prompt('Please Enter a name')
+  fetch('http://localhost:3000/players', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'accept': 'application/json'
+    },
+    body: JSON.stringify({
+      player: {
+        name: name
 
-//   fetch('http://localhost:3000/players', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'accept': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       player: {
-//         name: 
-
-//       }
-//     })
-//   }).then(res => res.json())
-// }
+      }
+    })
+  }).then(res => res.json())
     // .then(console.log)

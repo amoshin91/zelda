@@ -46,7 +46,7 @@ class HyruleScene extends Phaser.Scene {
     this.physics.add.collider(player, upperMountainsTileSet)
 
     entranceTileset.setTileLocationCallback(33, 9, 1, 1, () => {
-      music.stop()
+      music.pause()
       this.scene.start('Dungeon')
     })
 

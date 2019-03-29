@@ -19,7 +19,23 @@ let player
 let score
 let timerLength = 1000
 let startTime = Date.now()
-let timer = startTime + timerLength
-console.log(timer)
+let weapon
+let fireButton
 const game = new Phaser.Game(config);
-let playerName = prompt("Please Enter your name: ")
+// const postReq = (name) => {
+
+//   fetch('http://localhost:3000/players', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'accept': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       player: {
+//         name: 
+
+//       }
+//     })
+//   }).then(res => res.json())
+// }
+    // .then(console.log)

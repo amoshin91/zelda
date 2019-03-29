@@ -6,6 +6,7 @@ class Dungeon extends Phaser.Scene {
   preload () {
 
     console.log('im here')
+    this.load.image('bullet', 'js/assets/images/sprites/zelda/rgblaser.png')
     this.load.image('rupee', 'js/assets/images/sprites/zelda/rupee-single.png')
     this.load.image('heart', 'js/assets/images/sprites/zelda/PixelArt.png')
     this.load.image('walls', 'js/assets/images/walls.png')
@@ -32,26 +33,17 @@ class Dungeon extends Phaser.Scene {
 
   create () {
     let score = 0
-<<<<<<< HEAD
-    // const text = this.add.text(100, 100, 'Score:' + score)
-    const map = this.make.tilemap({ key: 'dungeon' })
-
-    const floorTileset = map.addTilesetImage('tileset', 'floor')
-    const wallsTileset = map.addTilesetImage('walls', 'walls')
-    const objectsTileSet = map.addTilesetImage('terrain', 'objects')
-=======
     this.add.text(100, 100, 'Score:' + score)
+    
     const map = this.make.tilemap({ key: 'dungeon' })
     const objectsTileSet = map.addTilesetImage('terrain', 'objects')
     const floorTileset = map.addTilesetImage('tileset', 'floor')
     const wallsTileset = map.addTilesetImage('walls', 'walls')
     // debugger
->>>>>>> cristian
 
     const backgroundLayer = map.createStaticLayer('Walls', wallsTileset, 0, 0)
     const groundLayer = map.createStaticLayer('Floors', floorTileset, 0, 0)
     const objectsLayer = map.createStaticLayer('Objects', objectsTileSet, 0, 0)
-<<<<<<< HEAD
 
     let music = this.sound.add('dungeonmusic')
 
@@ -65,10 +57,7 @@ class Dungeon extends Phaser.Scene {
     // this.l003 = this.physics.add.image(280, 200, 'L003')
 
 ////////////////////////////////////////////////////////////////////
-
-=======
-    
->>>>>>> cristian
+    // this.weapon.trackSprite(player, 14, 0)
     const spawnPoint = map.findObject('Obj1', obj => obj.name === 'SpawnPoint')
     const enemySpawnPoint = map.findObject('Obj2', obj => obj.name === 'EnemySpawnPoint')
     player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link')
@@ -164,36 +153,11 @@ class Dungeon extends Phaser.Scene {
   }
 
 
-////////////////////////////////////////////////////////////////////
-  // stopMoving () {
-  //
-  //   if (this.player.x === 290) {
-  //     this.player.x += 1
-  //   } else if (this.player.x === 299) {
-  //     this.player.x += 1
-  //   } else if (this.player.x === 298) {
-  //     this.player.x += 1
-  //   } else if (this.player.x === 297) {
-  //     this.player.x += 1
-  //   } else if (this.player.x === 296) {
-  //     this.player.x += 1
-  //   }
-  //   // debugger
-  // }
 
-////////////////////////////////////////////////////////////////////
 
   update () {
     let cursors = this.input.keyboard.createCursorKeys()
     let linkSpeed = 3
-
-////////////////////////////////////////////////////////////////////
-
-    // this.physics.add.collider(this.player, this.l001, this.stopMoving, null, this)
-    // this.physics.add.collider(this.player, this.l002, this.stopMoving, null, this)
-    // this.physics.add.collider(this.player, this.l003, this.stopMoving, null, this)
-
-////////////////////////////////////////////////////////////////////
 
     if (cursors.left.isDown) {
       player.x -= linkSpeed
@@ -222,6 +186,7 @@ class Dungeon extends Phaser.Scene {
     } else {
       this.enemy.anims.play('ganStand', true)
     }
+
     this.physics.moveToObject(this.enemy, player, 60)
   }
 
@@ -229,11 +194,7 @@ class Dungeon extends Phaser.Scene {
   collisionHandler () {
     if (!player.invincible) {
       player.health = player.health - 0.5
-<<<<<<< HEAD
-      // console.log(player.health)
-=======
       console.log(player.health)
->>>>>>> cristian
       console.log("you've been hit!!")
     }
     if (player.health <= 0) {
@@ -242,10 +203,6 @@ class Dungeon extends Phaser.Scene {
     }
   }
 
-<<<<<<< HEAD
-
-
-=======
   timeScore () {
     let now = Date.now()
     if (timer > now) {
@@ -253,5 +210,4 @@ class Dungeon extends Phaser.Scene {
       score = score_factor
     }
   }
->>>>>>> cristian
 }

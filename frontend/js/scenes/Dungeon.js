@@ -32,7 +32,7 @@ class Dungeon extends Phaser.Scene {
 
   create () {
     let score = 0
-    const text = this.add.text(100, 100, 'Score:' + score)
+    // const text = this.add.text(100, 100, 'Score:' + score)
     const map = this.make.tilemap({ key: 'dungeon' })
 
     const floorTileset = map.addTilesetImage('tileset', 'floor')

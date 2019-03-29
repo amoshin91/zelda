@@ -9,13 +9,16 @@ class HyruleScene extends Phaser.Scene {
     this.load.image('tiles', 'js/assets/maps/32x32_map_tile v3.1 [MARGINLESS].png')
     this.load.spritesheet('link', 'js/assets/images/sprites/zelda/link-move-long-sheet.png', { frameWidth: 30, frameHeight: 36 })
 
-    this.load.image('wall', 'js/assets/images/sprites/zelda/invisible.png')
+    // this.load.image('wall', 'js/assets/images/sprites/zelda/invisible.png')
 
-    this.load.audio('hyrulemusic', 'js/assets/music/hyruleThemeSong.mp3')
+    this.load.audio('hyulemusic', 'js/assets/music/hyruleThemeSong.mp3')
+    // this.load.audio('loadmusic', 'js/assets/music/loadingScreenSong.mp3')
   }
   create () {
-    let music = this.sound.add('hyrulemusic')
-    // music.mute()
+
+    // music.stop('loadmusic')
+    let music = this.sound.add('hyulemusic')
+    // music.stop()
     // debugger
     music.play()
 
@@ -36,22 +39,23 @@ class HyruleScene extends Phaser.Scene {
     const trees = hyrule.createStaticLayer('Trees', [hyruleTileSet], 0, 0).setDepth(0)
     const mountainsTileSet = hyrule.createStaticLayer('Mountains', [terrainTileSet], 0, 0)
     const upperMountainsTileSet = hyrule.createStaticLayer('UpperMountain', [terrainTileSet], 0, 0)
-    const outerGrass = hyrule.createStaticLayer('OuterGrass', [hyruleTileSet], 0, 0)
+    const outerGrass = hyrule.createStaticLayer('OuterGrass', [terrainTileSet], 0, 0)
     const entranceTileset = hyrule.createStaticLayer('Entrance', [terrainTileSet], 0, 0)
     const spawnPoint = hyrule.findObject('Object Layer 2', obj => obj.name === 'Spawn')
     player = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, 400, 300, 'link').setDepth(0)
     // entranceTileset.setCollision([683])
-    waterTiles.setTileLocationCallback([770, 688, 750, 793, 687, 771, 772], () => {
-      console.log('water')
-    })
+    // waterTiles.setTileLocationCallback([770, 688, 750, 793, 687, 771, 772], () => {
+    //   console.log('water')
+    // })
     this.physics.add.collider(player, entranceTileset)
     this.physics.add.collider(player, waterTiles)
     this.physics.add.collider(player, trees)
     this.physics.add.collider(player, mountainsTileSet)
     this.physics.add.collider(player, outerGrass)
     this.physics.add.collider(player, upperMountainsTileSet)
+
     entranceTileset.setTileLocationCallback(33, 9, 1, 1, () => {
-      music.pause()
+      music.stop()
       this.scene.start('Dungeon')
     })
 
@@ -103,7 +107,7 @@ class HyruleScene extends Phaser.Scene {
     let entranceToDungeon = hyrule.findObject('EntranceObj', obj => obj.name === 'Enter')
     this.physics.add.collider(player, entranceTileset)
 
-    this.physics.add.collider(player, this.wall, this.stopMoving, null, this)
+    // this.physics.add.collider(player, this.wall, this.stopMoving, null, this)
 
   }
 
@@ -129,9 +133,9 @@ class HyruleScene extends Phaser.Scene {
 
   }
 
-  stopMoving () {
-    console.log('hi')
-    this.player.body.velocity === 0
-  }
+  // stopMoving () {
+  //   console.log('hi')
+  //   this.player.body.velocity === 0
+  // }
 
 }

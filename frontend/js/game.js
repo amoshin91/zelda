@@ -15,9 +15,11 @@ const config = {
   },
   scene: [LoadingScene, MenuScene, HyruleScene, Dungeon, GameOverScene]
 };
-let player;
-let score;
-
-
+let player
+let score
+let timerLength = 1000
+let startTime = Date.now()
+let timer = startTime + timerLength
+console.log(timer)
 const game = new Phaser.Game(config);
 let playerName = prompt("Please Enter your name: ")
